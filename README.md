@@ -1,5 +1,4 @@
 # TP-Sala-de-Juegos-ANGULAR-
-Trabajo práctico obligatorio para la promoción directa
 
-# https:
+# https://ben10formis.github.io/TP_LAV4_2017/TP-Sala-de-Juegos-ANGULAR-
 
