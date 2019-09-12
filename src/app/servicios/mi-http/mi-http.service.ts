@@ -42,7 +42,7 @@ export class MiHttpService {
 
   private extractData ( res: Response )
   {
-    return res.json() || {};
+    return res.json() || {}; //lo transforma en json
   }
 
   private handleError ( error: Response | any )

@@ -7,23 +7,49 @@ body {
     line-height: 1.8;
     color: #f5f6f7;
 }
+
 p {font-size: 16px;}
 .margin {margin-bottom: 45px;}
+.tituloInstruccion {
+    margin-bottom: 45px;
+    font-size: 25px;
+    color: rgb(255, 123, 0);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-decoration: underline;
+
+}
+.instrucciones{
+  color:blue;
+  text-align: left;
+  font-size: 20px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
 .bg-1 { 
-    background-color: #1abc9c; /* Green */
-    color: #ffffff;
+    background: rgb(231, 238, 237) url('/assets/imagenes/fondo2.png');
+    color:blue;
+    font-family:'Comfortaa', cursive;
+
 }
 .bg-2 { 
-    background-color: #474e5d; /* Dark Blue */
-    color: #ffffff;
+   /* background-color: #474e5d; /* Dark Blue 
+    color: #ffffff;*/
+    padding-top: 100px;
+    padding-bottom: 50px;
+    color: white;
+    background: linear-gradient(to top left, #a8ff44, #f1a471);
 }
 .bg-3 { 
-    background-color: #ffffff; /* White */
-    color: #555555;
+   /* background-color: #20B2A9; /* White */
+   /* color: white;*/
+    background: rgb(231, 238, 237) url('/assets/imagenes/fondo2.png');
 }
 .bg-4 { 
-    background-color: #2f2f2f; /* Black Gray */
-    color: #fff;
+   /* background-color: #2f2f2f; /* Black Gray 
+    color: #fff;*/
+    padding-top: 100px;
+    padding-bottom: 50px;
+    color: white;
+    background: linear-gradient(to top left, #a8ff44, #f1a471);
 }
 .container-fluid {
     padding-top: 70px;
@@ -37,7 +63,24 @@ p {font-size: 16px;}
     margin-bottom: 0;
     font-size: 12px;
     letter-spacing: 5px;
+   /* background-color: rgb(153,102,153);*/
+   /* color: rgb(255,255,204);*/
+   color: white;
+   background: linear-gradient(to top left, #a8ff44, #f1a471);
+
 }
 .navbar-nav  li a:hover {
-    color: #1abc9c !important;
+    color: #19BC9C !important;
+}
+
+.navbar-nav li a{
+    color:blue;
+    font-size: 20px;
+    font-family:'Comfortaa', cursive;
+}
+
+.navbar-brand{
+    color: rgb(31, 161, 48);
+    font-size: 30px;
+    font-family: 'Comfortaa', cursive;
 }

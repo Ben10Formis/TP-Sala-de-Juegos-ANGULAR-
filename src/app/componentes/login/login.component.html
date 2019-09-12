@@ -21,6 +21,7 @@
     </div>
   </div>
 </div-->
+<!--login original del profesor
  <div class="container" >
   <div class="jumbotron" style="padding:50px;">
     <form action="return true;">
@@ -54,4 +55,59 @@
      
     </form>
   </div>
+</div>
+-->
+
+<!--opcion de login-->
+<!--Encabezado-->
+<div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" routerLink="/Principal">Sala De Juegos</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a routerLink="/Reegistro">Registrarse</a></li>
+      </ul>
+    </div>
+</div>
+
+<!-- First Container -->
+<div id ="quiwn"class="container-fluid bg-1 text-center">
+    <div *ngIf="!logeando" class="progress">
+        <div class="progress-bar progress-bar-info progress-bar-striped active" [class]="clase" role="progressbar" aria-valuenow="10" aria-valuemin="0" aria-valuemax="100" [style.width]="ProgresoDeAncho" >
+          {{progresoMensaje}} - {{progreso}}%
+        </div>
+    </div>
+    <div class="formIngreso animated bounceIn">                  
+        <form id="login" class="login">
+          <img  src="./assets/imagenes/login1.jpg"class="img-responsive" id="avatar">
+          <div class="form-group">
+            <label>Usuario</label>
+            <input type="email" class="form-control" name="usuario" id="usuario" value="usuario" [(ngModel)]="usuario" placeholder="Usuario" required="required" autofocus="autofocus">
+          </div>
+          <div class="form-group">
+            <label>Contraseña</label>
+            <input type="password" class="form-control" name="clave" id="clave" [(ngModel)]="clave" placeholder="Contraseña" required="required"> 
+          </div>
+
+          <button *ngIf="logeando" (click)="CargarAdministrador()">Entrar como Usuario Administrador</button>
+          
+          <div class="form-group">
+            <label>
+              <!-- <input class="" id="recordarme" type="checkbox" checked> Recuerdame -->
+              <mat-checkbox type="checkbox" checked="checked"> Recordar mis datos!</mat-checkbox>
+            </label>
+          </div>
+          <input type="submit" id="logIn" class="btn btn-block btn-success" (click)="MoverBarraDeProgreso()" value="enviar">      
+        
+          <button type="button" class="btn btn-info" routerLink="/Registro" >Registrarse</button>
+         
+        </form>
+      </div>
+  <h2></h2>
 </div>

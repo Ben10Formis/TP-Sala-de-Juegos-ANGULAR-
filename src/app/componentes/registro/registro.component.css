@@ -7,26 +7,10 @@ input[type=text], input[type=password] {
     box-sizing: border-box;
 }
 
-/* Set a style for all buttons */
-button {
-    background-color: #4CAF50;
-    color: white;
-    padding: 14px 20px;
-    margin: 8px 0;
-    border: none;
-    cursor: pointer;
-    width: 100%;
-}
-
-/* Extra styles for the cancel button */
-.cancelbtn {
-    padding: 14px 20px;
-    background-color: #f44336;
-}
-
-/* Float cancel and signup buttons and add an equal width */
-.cancelbtn,.signupbtn {float:left;width:50%}
-
+.example-spacer {
+    flex: 1 1 auto;
+  }
+  
 /* Add padding to container elements */
 .container {
     padding: 16px;
@@ -52,7 +36,7 @@ button {
     background-color: #fefefe;
     margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
     border: 1px solid #888;
-    width: 98%; /* Could be more or less, depending on screen size */
+    width: 70%; /* Could be more or less, depending on screen size */
 }
 
 /* The Close Button (x) */
@@ -84,3 +68,23 @@ button {
        width: 100%;
     }
 }
+
+
+.bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+    padding-bottom: 100px;
+}
+
+.material-button{
+    color: #ffffff;
+}
+
+.example-container {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .example-container > * {
+    width: 100%;
+  }

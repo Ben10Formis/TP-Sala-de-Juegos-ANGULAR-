@@ -1,0 +1,48 @@
+<!--<p> fanaticos works! </p>-->
+
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"> 
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-1 sidenav">
+    </div>
+    <div class="col-sm-10 text-left"> 
+      <div class="content">
+        <div class="well color-fondo">
+          <div style="text-align:center">
+            <h1 class="fuente">
+              {{nuevoJuego.nombre}}
+            </h1>
+          </div>
+          <div class="row">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-5" style="text-align:center">
+              
+                
+                <button type="button" mat-raised-button color="primary" (click)="ComenzarJuego()" >{{ mostrarJuego ? 'Terminar' : 'Empezar'}}</button><br />
+                
+                <div *ngIf="mostrarJuego"  class="well">
+                    <div class="row margen-izq">  
+                      <div class="col-md-12">
+                        <img alt='Icono Piedra' src="./assets/imagenes/{{miImagen}}.jpg"><br /><br /><br />
+                        <p style="text-align:left">
+                            Respuesta: <input [(ngModel)]="nuevoJuego.respuestaIngresada" placeholder=" Ingrese respuesta" name="respuestaIngresada" type="text" class="form-control" style="width:50%"/>
+                        </p>
+                      </div>
+                    </div>
+                    <button type="button" mat-raised-button color="accent" (click)="verificar()" >Verificar</button>
+                </div>
+                <br />
+                 
+              <!-- <h1 [hidden]="!this.nuevoJuego.gano" style="text-align:center">Ganaste! </h1>
+              <h1 [hidden]="!this.perdio">Perdiste!</h1> -->
+            </div>
+            <div class="col-sm-3"></div>
+          </div> 
+          <div id="snackbar">{{Mensajes}}</div> 
+      
+        </div>
+      </div>
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
+</div>

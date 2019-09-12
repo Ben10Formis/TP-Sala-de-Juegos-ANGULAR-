@@ -1,0 +1,57 @@
+.estilosContainer{
+    background-color: rgb(245, 12, 129);
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    -webkit-background-size : cover;
+    -moz-background-size : cover;
+    -moz-background-size : cover;
+    background-size: cover;
+    margin:0 auto;
+    padding:5%;
+}
+
+input[type=text], input[type=password] {
+    width: 100%;
+    padding: 20px 20px;
+    margin: 9px 0;
+    display: inline-block;
+    border: 1px solid rgb(59, 21, 129);
+    box-sizing: border-box;
+}
+
+form {
+    background-color: grey;
+    text-align: center;
+    border: 2px solid wheat;
+    padding:0px;
+    margin: 0 auto;
+    background-position: center;
+}
+
+#snackbar {
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+   
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+}
+#snackbar.Ganador {
+    background-color: rgb(224, 192, 9);
+}
+#snackbar.Perdedor {
+    background-color: #FF0000;
+}
+#snackbar.show {
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}

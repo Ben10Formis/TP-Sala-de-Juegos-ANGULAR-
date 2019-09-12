@@ -3,12 +3,54 @@
 <input type="button" (click)="llamaServicePromesa()" class="btn btn-info" value="Pulsame Promesa" --> 
 
 <!-- Centered Pills -->
-<ul class="nav nav-pills nav-justified">
+<!-- <ul class="nav nav-pills nav-justified">
     <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li>
     <li><a (click)="llamaService()">Servicio</a></li>
     <li><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
     <li><a (click)="llamaServicePromesa()">Serv observable</a></li>
   </ul>
   
-<app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados>
+<app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados> -->
 
+<!--<app-listados></app-listados>-->
+<!--input type="button" (click)="llamaService()" class="btn btn-info" value="Pulsame" > 
+<input type="button" (click)="llamaServicePromesa()" class="btn btn-info" value="Pulsame Promesa" --> 
+
+<app-menu></app-menu>
+<!-- Centered Pills -->
+<!--<ul class="nav nav-pills nav-justified">
+    <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li>
+    <li><a (click)="llamaService()">Servicio</a></li>
+    <li><a (click)="llamaServicePromesa()">Serv Promesa</a></li>
+    <li><a (click)="llamaServicePromesa()">Serv observable</a></li>
+</ul>-->
+
+<nav class="navbar  navbar-default"> 
+      <ul class="nav navbar-nav">
+        <li><a  (click)="verTodos()">Ver Todos</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+        <li><a  (click)="verGanadores()">Ver Ganadores</a></li>
+      </ul>
+      <ul class="nav navbar-nav">
+          <li><a  (click)="verPerdedores()">Ver Perdedores</a></li>
+      </ul>
+      <ul class="nav navbar-nav" >
+          <div select class="form-control"  >
+              <select [(ngModel)]="juegoElegido">
+                <option value="0"  [selected]="juegoElegido == 0">Seleccionar</option>
+                <option value="Fanaticos">Fanáticos</option>
+                <option value="Anagrama">Anagrama</option>
+                <option value="Agilidad Aritmética">Agilidad Aritmética</option>
+                <option value="Adivina el número">Adivina el número</option>
+                <option value="Piedra, Papel o Tijera">Piedra, Papel o Tijera</option>
+              </select>
+          </div>
+      </ul>
+      <ul class="nav navbar-nav">
+          <li><a  (click)="filtrarPorJuego(juegoElegido)">Ver Por Juegos</a></li>
+      </ul>
+  </nav>
+
+<app-listado-de-resultados [listado]="listadoParaCompartir"> </app-listado-de-resultados>
+<br><br><br>

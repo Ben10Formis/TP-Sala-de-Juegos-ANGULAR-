@@ -14,12 +14,26 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let juego of listado">
+      <!-- <tr *ngFor="let juego of listado" class="success">
         <td>{{juego.nombre}} </td>
         <td>{{juego.jugador}} </td> 
         <td *ngIf="juego.gano">Gano </td>   
         <td *ngIf="!juego.gano">Perdio</td>     
-      </tr>
+      </tr> -->
+      <ng-container *ngFor="let juego of listado">
+        <tr *ngIf="juego.gano" class="success">
+          <td>{{juego.nombre}} </td>
+          <td>{{juego.jugador}} </td> 
+          <td *ngIf="juego.gano">Gano </td>   
+          <td *ngIf="!juego.gano">Perdio</td>
+        </tr>
+        <tr *ngIf="!juego.gano" class="danger">
+            <td>{{juego.nombre}} </td>
+            <td>{{juego.jugador}} </td> 
+            <td *ngIf="juego.gano">Gano </td>   
+            <td *ngIf="!juego.gano">Perdio</td>
+          </tr>        
+      </ng-container>
      
     </tbody>
   </table>

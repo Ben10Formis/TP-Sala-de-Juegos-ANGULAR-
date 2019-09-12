@@ -22,4 +22,5 @@ export class ListadoDeResultadosComponent implements OnInit {
     console.info(this.listado);
   }
 
+
 }

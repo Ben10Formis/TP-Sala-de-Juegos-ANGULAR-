@@ -21,7 +21,7 @@ export class JugadoresListadoComponent implements OnInit {
   }
 
 
-  TraerTodos(){
+ /* TraerTodos(){
     //alert("totos");
     this.miJugadoresServicio.traertodos('jugadores/','todos').then(data=>{
       //console.info("jugadores listado",(data));
@@ -42,6 +42,6 @@ export class JugadoresListadoComponent implements OnInit {
       this.listado= data;
 
     })
-  }
+  }*/
 
 }

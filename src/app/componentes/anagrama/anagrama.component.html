@@ -1,3 +1,44 @@
-<p>
-  anagrama works!
-</p>
+<div class="container-fluid text-center">    
+    <div class="row content">
+      <div class="col-sm-2 sidenav">
+      </div>
+      <div class="col-sm-8 text-left"> 
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <div style="text-align:center">
+          <h1>
+            {{nuevoJuego.nombre}}
+          </h1>
+         </div>
+        <h2></h2>
+        <form name="juego" >
+          <div class="row">
+            <div class="col-sm-3"></div>
+            <div class="col-sm-7">
+                <h2><button *ngIf="nuevoJuego.numeroSecreto==0 " (click)="generarnumero()"  class="btn btn-info btn-lg">Nuevo número secreto</button></h2>
+                
+                <p> </p> 
+                  <h1>Palabra desordenada:  </h1>
+                  <h2> {{nuevoJuego.palabraDesordenada}} </h2> 
+                  <br /> <input [(ngModel)]="nuevoJuego.palabraIngresada" placeholder="ingrese la palabra ordenada" name="palabraOrdenadaa" type="text" class="form-control" style="width:50%"/>
+              
+                  <!-- <h2 [hidden]="ocultarVerificar"><button  *ngIf="nuevoJuego.esperando!=0" (click)="verificar()" class="btn btn-success btn-lg">Verificar</button></h2>    -->        
+                  <h2><button *ngIf="ocultarComenzar" (click)="generarPalabra()"  class="btn btn-info btn-lg">Comenzar</button></h2> 
+
+                  <!---->
+                  <h2 [hidden]="ocultarVerificar"><button  *ngIf="nuevoJuego.numeroSecreto!=0" (click)="verificar()" class="btn btn-success btn-lg">Verificar</button></h2>
+                  
+                     <h2><button *ngIf="nuevoJuego.numeroSecreto==0 " (click)="generarnumero()"  class="btn btn-info btn-lg">Nuevo número secreto</button></h2>
+                  
+                  <!--<h2><p *ngIf="!ocultarVerificar" ><mat-spinner>.</mat-spinner>Esperando que ingrese una palabra</p></h2>-->
+                  <h2><p *ngIf="!ocultarVerificar" ><p> <i class="fa fa-spinner fa-spin"></i>Esperando que ingrese una palabra</p></h2>
+            </div>
+            <div class="col-sm-3"></div>
+          </div>
+
+        </form>
+        <div id="snackbar">{{Mensajes}}</div> 
+      <div class="col-sm-2 sidenav">        
+      </div>
+    </div>
+  </div>
+  

@@ -67,3 +67,34 @@ span.psw {
        width: 100%;
     }
 }
+
+.bg-1 { 
+    background-color: #bca91a; /* Green */
+    color: #ffffff;
+    padding-bottom: 100px;
+}
+
+.login{
+    max-width: 400px;
+    padding: 15px;
+  
+  }
+  #avatar{
+    width: 96px;
+    height: 96px;
+    margin: 0px auto 10px;
+    display: block;
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 5px;
+    border-color: white;
+  }
+  form{
+    width: 450;
+    margin: auto;
+    background: rgba(0,0,0,0.4);
+    padding: 10px 20px;
+    
+    margin-top: 20px;
+    border-radius: 7px;
+  }

@@ -1,47 +1,129 @@
+
 <body>
-  <div class="jumbotron">
-    <h2 id="terminos">Terminos y condiciones</h2>
-    <p>El Gobierno de la República Argentina (en adelante el “Gobierno Nacional”) no es responsable por los daños y perjuicios que puedan surgir, incluyendo, sin límite, daños, pérdidas o gastos directos, indirectos, que surjan en relación con el uso de los Activos Digitales o la imposibilidad de uso, en relación con cualquier falla en el vencimiento, error, omisión, interrupción, defecto, demora en la operación o transmisión, virus de computadora o falla del sistema de línea, aún en el caso de que el Gobierno Nacional o sus representantes fueran informados sobre la posibilidad de dichos daños, pérdidas o gastos.</p>
-    <p>El Gobierno Nacional no controla ni garantiza la ausencia de virus ni de otros elementos en los contenidos que puedan producir alteraciones en su sistema informático (software y hardware) o en los documentos electrónicos y ficheros almacenados en su sistema informático.</p>
-    <p>El Gobierno Nacional no puede garantizar que la transmisión de información por parte de los Usuarios sea completamente segura. El Usuario asume este riesgo.</p>
-   
-  </div>
-  <strong><p>No leer lo anterior, es solo un ejemplo sacado de https://www.argentina.gob.ar/terminos-y-condiciones </p></strong>
-  <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Acepto</button>
-  <button  class="cancelbtn"  routerLink="/Principal" style="width:auto;">No acepto</button>
-  <div id="id01" class="modal">
-    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
-    <form class="modal-content animate" >
-      <div class="container">
-        <label><b>Email</b></label>
-        <input type="text" placeholder="Ingresa tu correo" name="email" required>
+    <body style="background-image: url('../../assets/imagenes/fondo2.png')">
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>
+          <span><h2 id="terminos">Términos y condiciones</h2><br /><br /></span>
+      </mat-toolbar-row>
+      <mat-toolbar-row>
+          <span></span>
+          <span class="example-spacer"></span>        
+       </mat-toolbar-row>
+       <mat-toolbar-row>
+          <span>El Gobierno de la República Argentina no es responsable por los daños y perjuicios que puedan surgir, incluyendo, sin límite, daños,<br />
+             pérdidas o gastos directos, indirectos, que surjan en relación con el uso de los Activos Digitales o la imposibilidad de uso,<br />
+              en relación con cualquier falla en el vencimiento, error, omisión, interrupción, defecto, demora en la operación o transmisión,<br />
+               virus de computadora o falla del sistema de línea, aún en el caso de que el Gobierno Nacional o sus representantes fueran<br />
+              informados sobre la posibilidad de dichos daños, pérdidas o gastos.</span>
+          <span class="example-spacer"></span>        
+       </mat-toolbar-row>
+       <mat-toolbar-row>
+          <span></span>
+          <span class="example-spacer"></span>        
+       </mat-toolbar-row>
+       <mat-toolbar-row>
+          <span><p><br />El Gobierno Nacional no puede garantizar que la transmisión de información por parte de los Usuarios sea<br />
+             completamente segura. El Usuario asume este riesgo.</span>
+          <span class="example-spacer"></span>        
+       </mat-toolbar-row>
+       <mat-toolbar-row>
+          <span></span>
+          <span class="example-spacer"></span>        
+       </mat-toolbar-row>
+    </mat-toolbar>
+        <div style="text-align:center">
+            <strong><p>No leer lo anterior, es solo un ejemplo sacado de https://www.argentina.gob.ar/terminos-y-condiciones </p></strong>
+            <button mat-raised-button color="primary" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Acepto</button>
+            <button mat-raised-button color="warn"  routerLink="/Principal" style="width:auto;">No acepto</button>
   
-        <label><b>Clave</b></label>
-        <input type="password" placeholder="Aca la clave" name="psw" required>
-  
-        <label><b>Repita la clave</b></label>
-        <input type="password" placeholder="Aca repeti la misa clave  de arriba" name="psw-repeat" required>
-        <input type="checkbox" checked="checked">Recordar mis datos
-        <p>creando la cuenta aceptando los<a  onclick="document.getElementById('id01').style.display='none'"  >Terminos y condiciones</a>.</p>
-  
-        <div class="clearfix">
-          <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Me arrepenti</button>
-          <button type="submit" class="signupbtn">Registrarme</button>
+            <div id="id01" class="modal">
+              <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+              <form class="modal-content animate" [formGroup] = "registroForm" (ngSubmit)="Registrar()"> 
+                    <div class="container">
+                      <label><b>Email</b></label>
+                      <input type="text" placeholder="Ingresa tu correo" [formControl] = "registroMail" name="email">
+                      <div *ngIf="registroMail.valid" class="alert alert-success">
+                        El correo electronico es válido.
+                      </div>
+                      <div *ngIf="registroMail.invalid && (registroMail.dirty || registroMail.touched)" class="alert alert-danger">  
+                          <div *ngIf="registroMail.errors.required">
+                            El correo electronico es requerido.
+                          </div>
+                          <div *ngIf="registroMail.errors.minlength">
+                            El correo electronico debe contener 10 carácteres mínimo.
+                          </div>
+                          <div *ngIf="registroMail.errors.email">
+                            El correo electronico debe ser como ejemplo <small>tuemail@hotmail.com</small>
+                          </div>
+                          <div *ngIf="registroMail.errors.maxlength">
+                            El correo electronico debe contener 80 carácteres máximo.
+                          </div>
+                      </div>
+              
+              
+                      <label><b>Clave</b></label>
+                      <input type="password" placeholder="Ingrese su contraseña" [formControl] = "registroClave" name="psw" required>
+                      <div *ngIf="registroClave.valid" class="alert alert-success">
+                        La clave es válida.
+                      </div>
+                      <div *ngIf="registroClave.invalid && (registroClave.dirty || registroClave.touched)"
+                      class="alert alert-danger">
+                      <div *ngIf="registroClave.errors.required">
+                        La clave es requerida.
+                      </div>
+                       <div *ngIf="registroClave.errors.minlength">
+                         La clave debe tener 5 caracteres mínimo.
+                       </div>
+                       <div *ngIf="registroClave.errors.pattern">
+                         La clave debe contener numeros y letras.
+                       </div>
+                      </div>
+              
+              
+                      <label><b>Repita la clave</b></label>
+                      <input type="password" placeholder="Aca repeti la misa clave  de arriba" [formControl] = "registroRepetirClave" name="psw-repeat" required>
+                      <div *ngIf="registroRepetirClave.valid" class="alert alert-success">
+                        La clave es válida.
+                      </div>
+                      <div *ngIf="registroRepetirClave.invalid && (registroRepetirClave.dirty || registroRepetirClave.touched)"
+                      class="alert alert-danger">
+                      <div *ngIf="registroRepetirClave.errors.required">
+                        Debe repetir la clave.
+                      </div>
+                       <div *ngIf="registroRepetirClave.errors.minlength">
+                         La clave debe tener 5 caracteres mínimo.
+                       </div>
+                       <div *ngIf="registroRepetirClave.errors.MatchPassword">
+                         Las contraseñas no coinciden.
+                      </div>
+                      </div>
+                      
+              
+                      <input type="checkbox" checked="checked">Recordar mis datos
+                      <p>creando la cuenta aceptando los<a  onclick="document.getElementById('id01').style.display='none'"  >Terminos y condiciones</a>.</p>
+                      <div class="clearfix">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Me arrepenti</button>
+                        <button type="submit" [disabled]="!registroForm.valid" class="signupbtn">Registrarme</button>
+                        <!-- [disabled]="!registroForm.valid" -->
+                      </div>
+                    </div>
+                  </form>
+            </div>
         </div>
-      </div>
-    </form>
-  </div>
+       
+        
+        <script>
+        // Get the modal
+        var modal = document.getElementById('id01');
+        
+        // When the user clicks anywhere outside of the modal, close it
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+        </script>
   
-  <script>
-  // Get the modal
-  var modal = document.getElementById('id01');
   
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
-      }
-  }
-  </script>
-  
+        
   </body>

@@ -1,3 +1,62 @@
-<p>
-  listados works!
-</p>
+    
+   <ul class="nav nav-pills nav-justified">
+    <li class="active"><a routerLink="/Principal">Sala de Juegos</a></li>
+    
+    <li><a (click)="SmarTable()">Smart Table</a></li>
+    <li><a (click)="Show()">Mostrar Todos</a></li>
+    <li><a (click)="filtTrue()">Ganadores</a></li>
+    <li><a (click)="filtFalse()">Perdedores</a></li>
+  </ul>    
+  
+
+<div  class="container"  >
+  <div [hidden]="mostrarSmarTable" >
+
+  <table class="table" [hidden]="mostrar">
+      <thead>
+        <th>Usuario</th>
+        <th>email</th>
+        <th>fecha</th>
+        <th>puntaje</th>
+        <th>gano?</th>
+      </thead>
+      <tbody *ngFor="let us of users">
+        <td>{{us.usuario}}</td>
+        <td>{{us.email}}</td>
+        <td>{{us.fecha}}</td>              
+        <td>{{us.puntaje}}</td>
+        <td>{{us.gano}}</td>
+        
+      </tbody>
+    </table>
+  
+    <table class="table" [hidden]="mostrarFilt">
+      <thead>
+        <th>Usuario</th>
+        <th>email</th>
+        <th>fecha</th>
+        <th>puntaje</th>
+        <th>gano</th>
+        
+      </thead>
+      <tbody *ngFor="let us of filtrado">
+        <td>{{us.usuario}}</td>
+        <td>{{us.email}}</td>
+        <td>{{us.fecha}}</td>      
+
+        <td>{{us.puntaje}}</td>
+        <td>{{us.gano}}</td>
+        
+      </tbody>
+    </table>
+
+  </div>
+
+  </div>
+  <div  [hidden]="mostrarSmarTable==false">
+<ng2-smart-table [settings]="settings" [source]="source"></ng2-smart-table>
+</div>
+
+
+  
+  

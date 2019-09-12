@@ -1,9 +1,8 @@
 
-form {
-    /*border: 10px solid rgb(243, 15, 156);*/
-    padding: 10px;
-    background:rgb(233, 28, 165);
+.color-fondo{
+    background-color:#ee2b9d;
 }
+
 #snackbar {
     visibility: hidden;
     min-width: 250px;
@@ -20,13 +19,17 @@ form {
     font-size: 17px;
 }
 #snackbar.Ganador {
-    background-color: rgba(17, 215, 230, 0.973);
+    background-color: rgba(230, 17, 177, 0.973);
 }
 #snackbar.Perdedor {
-    background-color: rgb(255, 0, 106);
+    background-color: rgb(72, 255, 0);
 }
 #snackbar.show {
     visibility: visible;
     -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
     animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.fuente{
+    font-family: 'Gloria Hallelujah', cursive;
 }

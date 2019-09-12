@@ -21,12 +21,16 @@ import { QuienSoyComponent } from '../componentes/quien-soy/quien-soy.component'
 import { ListadoDePaisesComponent } from '../componentes/listado-de-paises/listado-de-paises.component'
 import { MapaDeGoogleComponent } from '../componentes/mapa-de-google/mapa-de-google.component'
 import { JugadoresListadoComponent } from '../componentes/jugadores-listado/jugadores-listado.component';
+import { PiedraPapelTijeraComponent } from '../componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { FanaticosComponent } from '../componentes/fanaticos/fanaticos.component';
+import { AnagramaComponent } from '../componentes/anagrama/anagrama.component';
 
 
 // declaro donde quiero que se dirija
 const MiRuteo = [
+//{path: '' , component: PrincipalComponent},
+{path: '' , component: LoginComponent},
 {path: 'Jugadores' , component: JugadoresListadoComponent},
-{path: '' , component: PrincipalComponent},
 {path: 'Login' , component: LoginComponent},
 {path: 'Mapa' , component: MapaDeGoogleComponent},
 {path: 'QuienSoy' , component: QuienSoyComponent},
@@ -34,25 +38,23 @@ const MiRuteo = [
 {path: 'Principal' , component: PrincipalComponent},
 {path: 'Listado' , component: ListadoComponent},
 {path: 'Paises' , component: ListadoDePaisesComponent},
-
-{ path: 'Juegos' ,
-component: JuegosComponent ,
-children:
-     [{path: '' , component: MenuCardComponent},
-     {path: 'Adivina' , component: AdivinaElNumeroComponent},
-      {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
-      {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
-      {path: 'Agilidad' , component: AgilidadAritmeticaComponent}]
+{ path: 'Juegos' ,component: JuegosComponent ,
+                      children:
+                          [{path: '' , component: MenuCardComponent},
+                          {path: 'Adivina' , component: AdivinaElNumeroComponent},
+                          {path: 'AdivinaMasListado' , component: AdivinaMasListadoComponent},
+                          {path: 'AgilidadaMasListado' , component: AgilidadMasListadoComponent},
+                          {path: 'Agilidad' , component: AgilidadAritmeticaComponent},
+                          {path: 'PiedraPapelTijera' , component: PiedraPapelTijeraComponent},
+                          {path: 'Fanaticos' , component: FanaticosComponent},
+                          {path: 'Anagrama' , component: AnagramaComponent}]
 },
 {path: '**' , component: ErrorComponent},
 {path: 'error' , component: ErrorComponent}];
 
 @NgModule({
-  imports: [
-    RouterModule.forRoot(MiRuteo)
-  ],
-  exports: [
-    RouterModule
-  ]
+  imports: [RouterModule.forRoot(MiRuteo)],
+  exports: [RouterModule]
 })
+
 export class RuteandoModule { }

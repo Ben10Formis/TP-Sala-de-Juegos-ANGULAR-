@@ -26,7 +26,7 @@
         </ul>
     </div>
   </nav-->
-  <nav class="navbar navbar-inverse">
+ <!-- <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
           <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
@@ -50,5 +50,48 @@
         </div>
       </div>
     </nav>
-      
-   
+  -->
+<!-- El logotipo y el icono que despliega el menú se agrupan para mostrarlos mejor en los dispositivos móviles -->
+
+
+
+
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet">
+
+<nav class="navbar  navbar-default"> 
+
+  <div class="navbar-header navbar-inverse">
+  <a class="navbar-brand" routerLink="/Principal">Bienvenidos</a>
+  </div>
+
+  <ul class="nav navbar-nav">
+    <li><a  (click)="Juego('Agilidad')">Agilidad</a></li>
+  </ul>
+  <ul class="nav navbar-nav">
+    <li><a  (click)="Juego('Adivina')">Adivina</a></li>
+  </ul>
+  <ul class="nav navbar-nav">
+      <li><a  (click)="Juego('AdivinaMasListado')">Adivina+listado</a></li>
+    </ul>
+  <ul class="nav navbar-nav">
+    <li><a  (click)="Juego('AgilidadaMasListado')">Agilidad+listado</a></li>
+  </ul>
+  <ul class="nav navbar-nav">
+    <li><a  (click)="Juego('PiedraPapelTijera')">PiedraPapelTijera</a></li>
+  </ul>
+  <ul class="nav navbar-nav">
+    <li><a  (click)="Juego('Fanaticos')">Fanáticos</a></li>
+  </ul>
+  <ul class="nav navbar-nav">
+    <li><a  (click)="Juego('Anagrama')">Anagrama</a></li>
+  </ul>
+
+  <ul class="nav navbar-nav navbar-inverse">
+    <li><a  (click)="Juego('QuienSoy')"><span class="glyphicon glyphicon-user"></span> Mis Datos</a></li>
+  </ul>
+
+  <ul class="nav navbar-nav navbar-inverse">
+    <li><a  (click)="Juego('/')"><span class="glyphicon glyphicon-log-out"></span> Salir</a></li>
+  </ul>
+
+</nav>

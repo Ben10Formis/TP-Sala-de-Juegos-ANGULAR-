@@ -1,0 +1,52 @@
+<!--<p>piedra-papel-tijera works!</p>-->
+
+
+<link href="https://fonts.googleapis.com/css?family=Permanent+Marker" rel="stylesheet"> 
+<div class="container-fluid text-center">    
+  <div class="row content">
+    <div class="col-sm-1 sidenav">
+    </div>
+    <div class="col-sm-10 text-left"> 
+      <button *ngIf="mostrarBoton" type="button" class="btn btn-info" (click)="limpiar()" >Abandonar la partida</button>
+      <div class="content">
+        <div class="well color-fondo">
+          <h1 style="text-align:center">
+          <h3 class="fuente">{{eleccionMaquina}}</h3>
+          <h2>{{resultado}}</h2> 
+          
+          
+          </h1><br />
+          
+          
+          <div class="row margen-izq">  
+            <div class="col-md-4">
+              <img alt='Icono Piedra' src="./assets/imagenes/piedra1.png"><br /><br /><br />
+              
+              <p>
+                <button type="button" mat-raised-button color="primary" (click)="elijePiedra()">Piedra</button>
+              </p>
+            </div>
+          
+            <div class="col-md-4">
+              <img alt='Icono Papel' src="./assets/imagenes/papel1.png"><br /><br /><br />
+              <p>
+                <button type="button" mat-raised-button color="primary" (click)="elijePapel()">Papel</button>
+              </p>
+            </div>
+      
+          
+            <div class="col-md-4">
+              <img alt='Icono Tijera' src="./assets/imagenes/tijera1.png"><br /><br /><br />
+              <p>
+                <button type="button" mat-raised-button color="primary" (click)="elijeTijera()">Tijera</button>
+              </p>
+            </div>           
+          </div>
+          <h1 style="text-align:center"> <h3>{{estadisticas}}</h3></h1>
+        </div>
+      </div>
+      
+    <div class="col-sm-2 sidenav">
+    </div>
+  </div>
+</div>

@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { AdivinaElNumeroComponent } from './componentes/adivina-el-numero/adivina-el-numero.component';
 import { ListadoDeResultadosComponent } from './componentes/listado-de-resultados/listado-de-resultados.component';
@@ -16,7 +16,7 @@ import { MiHttpService } from './servicios/mi-http/mi-http.service';
 import { PaisesService } from './servicios/paises.service'; 
 
 import { JugadoresService } from './servicios/jugadores.service'; 
-import{ ArchivosJugadoresService} from './servicios/archivos-jugadores.service'; 
+import{ ArchivosjugadoresService} from './servicios/archivosjugadores.service'; // ArchivosjugadoresService
 import { ErrorComponent } from './componentes/error/error.component';
 import { PrincipalComponent } from './componentes/principal/principal.component';
 import { AgilidadAritmeticaComponent } from './componentes/agilidad-aritmetica/agilidad-aritmetica.component';
@@ -53,6 +53,13 @@ import { MapaDeGoogleComponent } from './componentes/mapa-de-google/mapa-de-goog
 import { AgmCoreModule } from '@agm/core';
 import { InputJugadoresComponent } from './componentes/input-jugadores/input-jugadores.component';
 import { SexoPipe } from './pipes/sexo.pipe';
+import { PiedraPapelTijeraComponent } from './componentes/piedra-papel-tijera/piedra-papel-tijera.component';
+import { FanaticosComponent } from './componentes/fanaticos/fanaticos.component';
+import { Ng2SmartTableModule } from 'ng2-smart-table';
+
+//https://material.angular.io/guide/getting-started
+import {NoopAnimationsModule} from '@angular/platform-browser/animations'; //animaciones integradas
+import {MaterialModule} from './material';
 
 @NgModule({
   declarations: [
@@ -78,21 +85,28 @@ import { SexoPipe } from './pipes/sexo.pipe';
     MapaDeGoogleComponent,
     JugadoresListadoComponent,
     InputJugadoresComponent,
-    SexoPipe
+    SexoPipe,
+    PiedraPapelTijeraComponent,
+    FanaticosComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    ReactiveFormsModule,
     RuteandoModule,
     HttpModule,
+    Ng2SmartTableModule,
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyB6f8x4IjRlesQ3oETc6BXYQHVRTOlY3Ys'
-    })
+    }),
     // NgbModule.forRoot(MiRuteo),
     // importo el ruteo
-    // RouterModule.forRoot(MiRuteo)
+    // RouterModule.forRoot(MiRuteo),
+    NoopAnimationsModule,
+    MaterialModule
+  
   ],
-  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosJugadoresService,JugadoresService],
+  providers: [ JuegoServiceService, MiHttpService,PaisesService,ArchivosjugadoresService,JugadoresService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
