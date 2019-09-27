@@ -436,78 +436,97 @@ var Fanaticos = (function (_super) {
             case 1:
                 this.nombreImagen = '1';
                 this.respCorrecta = "merli";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 2:
                 this.nombreImagen = '2';
                 this.respCorrecta = "la casa de papel";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 3:
                 this.nombreImagen = '3';
                 this.respCorrecta = "las chicas del cable";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 4:
                 this.nombreImagen = '4';
                 this.respCorrecta = "13 reasons why";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 5:
                 this.nombreImagen = '5';
                 this.respCorrecta = "luis miguel";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 6:
                 this.nombreImagen = '6';
                 this.respCorrecta = "stranger things";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 7:
                 this.nombreImagen = '7';
                 this.respCorrecta = "black mirror";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 8:
                 this.nombreImagen = '8';
                 this.respCorrecta = "breaking bad";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 9:
                 this.nombreImagen = '9';
                 this.respCorrecta = "narcos";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 10:
                 this.nombreImagen = '10';
                 this.respCorrecta = "vikingos";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 11:
                 this.nombreImagen = '11';
                 this.respCorrecta = "deiGamer";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 12:
                 this.nombreImagen = '12';
                 this.respCorrecta = "werevertumorro";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 13:
                 this.nombreImagen = '13';
                 this.respCorrecta = "ceci de viaje";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 14:
                 this.nombreImagen = '14';
                 this.respCorrecta = "yuya";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 15:
                 this.nombreImagen = '15';
                 this.respCorrecta = "hola soy german";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 16:
                 this.nombreImagen = '16';
                 this.respCorrecta = "ana vbon";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 17:
                 this.nombreImagen = '17';
                 this.respCorrecta = "karely vlogs";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 18:
                 this.nombreImagen = '18';
                 this.respCorrecta = "silvia muñoz";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
         }
         this.imgMostrar = this.nombreImagen;
         this.respuesta = this.respCorrecta;
+        this.tipoNetflixYoutuber = this.tipoNetflixYoutuberCorrecta;
         //this.jugar();
     };
     Fanaticos.prototype.mostrarJugada = function () {
@@ -517,6 +536,30 @@ var Fanaticos = (function (_super) {
     Fanaticos.prototype.verificar = function () {
         //alert(" tu resp " +this.respuestaIngresada + " la correct " +this.respuesta);
         if (this.respuestaIngresada == this.respuesta) {
+            this.gano = true;
+        }
+        if (this.gano) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    Fanaticos.prototype.netflix = function () {
+        //alert(" tu resp " +this.respuestaIngresada + " la correct " +this.tipoNetflixYoutuber);
+        if (this.respuestaIngresada == this.tipoNetflixYoutuber) {
+            this.gano = true;
+        }
+        if (this.gano) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    Fanaticos.prototype.youtuber = function () {
+        //alert(" tu resp " +this.respuestaIngresada + " la correct " +this.tipoNetflixYoutuber);
+        if (this.respuestaIngresada == this.tipoNetflixYoutuber) {
             this.gano = true;
         }
         if (this.gano) {
@@ -1369,7 +1412,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n.color-fondo{\r\n    background-color:#ee2b9d;\r\n}\r\n\r\n#snackbar {\r\n    visibility: hidden;\r\n    min-width: 250px;\r\n    margin-left: -125px;\r\n   \r\n    color: #fff;\r\n    text-align: center;\r\n    border-radius: 2px;\r\n    padding: 16px;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left: 50%;\r\n    bottom: 30px;\r\n    font-size: 17px;\r\n}\r\n#snackbar.Ganador {\r\n    background-color: rgba(230, 17, 177, 0.973);\r\n}\r\n#snackbar.Perdedor {\r\n    background-color: rgb(72, 255, 0);\r\n}\r\n#snackbar.show {\r\n    visibility: visible;\r\n    animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n.fuente{\r\n    font-family: 'Gloria Hallelujah', cursive;\r\n}", ""]);
+exports.push([module.i, "\r\n.color-fondo{\r\n    background-color:#ffff;\r\n}\r\n\r\n#snackbar {\r\n    visibility: hidden;\r\n    min-width: 250px;\r\n    margin-left: -125px;\r\n   \r\n    color: #fff;\r\n    text-align: center;\r\n    border-radius: 2px;\r\n    padding: 16px;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left: 50%;\r\n    bottom: 30px;\r\n    font-size: 17px;\r\n}\r\n#snackbar.Ganador {\r\n    background-color: rgba(5, 70, 24, 0.973);\r\n}\r\n#snackbar.Perdedor {\r\n    background-color: rgb(243, 12, 12);\r\n}\r\n#snackbar.show {\r\n    visibility: visible;\r\n    animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n.fuente{\r\n    font-family: 'Gloria Hallelujah', cursive;\r\n}", ""]);
 
 // exports
 
@@ -1382,7 +1425,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/fanaticos/fanaticos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<p> fanaticos works! </p>-->\n\n<link href=\"https://fonts.googleapis.com/css?family=Permanent+Marker\" rel=\"stylesheet\"> \n<div class=\"container-fluid text-center\">    \n  <div class=\"row content\">\n    <div class=\"col-sm-1 sidenav\">\n    </div>\n    <div class=\"col-sm-10 text-left\"> \n      <div class=\"content\">\n        <div class=\"well color-fondo\">\n          <div style=\"text-align:center\">\n            <h1 class=\"fuente\">\n              {{nuevoJuego.nombre}}\n            </h1>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-sm-4\"></div>\n            <div class=\"col-sm-5\" style=\"text-align:center\">\n              \n                \n                <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"ComenzarJuego()\" >{{ mostrarJuego ? 'Terminar' : 'Empezar'}}</button><br />\n                \n                <div *ngIf=\"mostrarJuego\"  class=\"well\">\n                    <div class=\"row margen-izq\">  \n                      <div class=\"col-md-12\">\n                        <img alt='Icono Piedra' src=\"./assets/imagenes/{{miImagen}}.jpg\"><br /><br /><br />\n                        <p style=\"text-align:left\">\n                            Respuesta: <input [(ngModel)]=\"nuevoJuego.respuestaIngresada\" placeholder=\" Ingrese respuesta\" name=\"respuestaIngresada\" type=\"text\" class=\"form-control\" style=\"width:50%\"/>\n                        </p>\n                      </div>\n                    </div>\n                    <button type=\"button\" mat-raised-button color=\"accent\" (click)=\"verificar()\" >Verificar</button>\n                </div>\n                <br />\n                 \n              <!-- <h1 [hidden]=\"!this.nuevoJuego.gano\" style=\"text-align:center\">Ganaste! </h1>\n              <h1 [hidden]=\"!this.perdio\">Perdiste!</h1> -->\n            </div>\n            <div class=\"col-sm-3\"></div>\n          </div> \n          <div id=\"snackbar\">{{Mensajes}}</div> \n      \n        </div>\n      </div>\n    <div class=\"col-sm-2 sidenav\">\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!--<p> fanaticos works! </p>-->\n\n<link href=\"https://fonts.googleapis.com/css?family=Permanent+Marker\" rel=\"stylesheet\"> \n<div class=\"container-fluid text-center\">    \n  <div class=\"row content\">\n    <div class=\"col-sm-1 sidenav\">\n    </div>\n    <div class=\"col-sm-10 text-left\"> \n      <div class=\"content\">\n        <div class=\"well color-fondo\">\n          <div style=\"text-align:center\">\n            <h1 class=\"fuente\">\n              {{nuevoJuego.nombre}}\n            </h1>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-sm-4\"></div>\n            <div class=\"col-sm-4\" style=\"text-align:center\"> \n                <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"ComenzarJuego()\" >{{ mostrarJuego ? 'Nueva partida' : '   Empezar   '}}</button><br />\n                <br />\n                <div *ngIf=\"mostrarJuego\"  class=\"well\">\n                    <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"proximo()\"  >Next</button><br />\n                    <br />\n                    <div class=\"row margen-izq\">  \n                      <div class=\"col-md-12\">\n                        <img alt='Icono Piedra' src=\"./assets/imagenes/{{miImagen}}.jpg\"><br /><br /><br />\n                        <!--<p style=\"text-align:left\">\n                            Respuesta: <input [(ngModel)]=\"nuevoJuego.respuestaIngresada\" placeholder=\" Ingrese respuesta\" name=\"respuestaIngresada\" type=\"text\" class=\"form-control\" style=\"width:50%\"/>\n                        </p>-->\n                      </div>\n                    </div>\n                    <!--<button type=\"button\" mat-raised-button color=\"accent\" (click)=\"verificar()\" >Verificar</button>-->\n                    <button type=\"button\" mat-raised-button color=\"accent\" (click)=\"netflix()\" >Netflix</button>\n                    <button type=\"button\" mat-raised-button color=\"accent\" (click)=\"youtuber()\" >YouTuber</button>\n   \n                </div>\n                <br />\n                 \n              <!-- <h1 [hidden]=\"!this.nuevoJuego.gano\" style=\"text-align:center\">Ganaste! </h1>\n              <h1 [hidden]=\"!this.perdio\">Perdiste!</h1> -->\n            </div>\n            <div class=\"col-sm-3\"></div>\n          </div> \n          <div id=\"snackbar\">{{Mensajes}}</div> \n      \n        </div>\n      </div>\n    <div class=\"col-sm-2 sidenav\">\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1411,13 +1454,56 @@ var FanaticosComponent = (function () {
         this.mostrarJuego = false;
         console.info("Inicio Fanaticos");
         this.miImagen = '1';
+        this.next = true;
     }
+    FanaticosComponent.prototype.proximo = function () {
+        this.nuevoJuego.comenzar();
+        this.miImagen = this.nuevoJuego.imgMostrar;
+        this.nuevoJuego.respuesta;
+    };
     FanaticosComponent.prototype.ComenzarJuego = function () {
+        console.log(this.mostrarJuego);
         this.nuevoJuego.comenzar();
         this.mostrarJuego = !this.mostrarJuego;
         this.miImagen = this.nuevoJuego.imgMostrar;
         this.nuevoJuego.respuesta;
         //this.miImagen.jugar();
+    };
+    FanaticosComponent.prototype.netflix = function () {
+        this.nuevoJuego.respuestaIngresada = "Netflix";
+        console.log(this.nuevoJuego.respuestaIngresada);
+        if (this.nuevoJuego.netflix()) {
+            this.ganoperdio = true;
+            this.msjAcerto = "Correcto!";
+            this.MostarMensaje("Ganaste!", true);
+            console.log(this.msjAcerto);
+        }
+        else {
+            this.ganoperdio = false;
+            this.msjAcerto = "Perdiste!";
+            this.MostarMensaje("nop, perdiste!", false);
+            console.log(this.msjAcerto);
+            //this.mostrarJuego = false;
+        }
+        this.nuevoJuego.gano = false;
+    };
+    FanaticosComponent.prototype.youtuber = function () {
+        this.nuevoJuego.respuestaIngresada = "Youtuber";
+        console.log(this.nuevoJuego.respuestaIngresada);
+        if (this.nuevoJuego.youtuber()) {
+            this.ganoperdio = true;
+            this.msjAcerto = "Correcto!";
+            this.MostarMensaje("Ganaste!", true);
+            console.log(this.msjAcerto);
+        }
+        else {
+            this.ganoperdio = false;
+            this.msjAcerto = "Perdiste!";
+            this.MostarMensaje("nop, perdiste!", false);
+            console.log(this.msjAcerto);
+            //this.mostrarJuego = false;
+        }
+        this.nuevoJuego.gano = false;
     };
     FanaticosComponent.prototype.verificar = function () {
         if (this.nuevoJuego.verificar()) {
