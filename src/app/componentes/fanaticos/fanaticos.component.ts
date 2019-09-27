@@ -15,20 +15,67 @@ export class FanaticosComponent implements OnInit {
   msjAcerto : string;
   Mensajes : string;
   ocultarVerificar:boolean;
+  next : boolean;
 
   constructor() {
     this.nuevoJuego = new Fanaticos();//ya puedo mostrar el nombre
     this.mostrarJuego = false;
     console.info("Inicio Fanaticos");
     this.miImagen = '1';
+    this.next = true;
+  }
+
+  proximo(){
+    this.nuevoJuego.comenzar();
+    this.miImagen = this.nuevoJuego.imgMostrar;
+    this.nuevoJuego.respuesta;
   }
 
   ComenzarJuego(){
+    console.log(this.mostrarJuego); 
     this.nuevoJuego.comenzar();
     this.mostrarJuego = !this.mostrarJuego;
     this.miImagen = this.nuevoJuego.imgMostrar;
     this.nuevoJuego.respuesta;
     //this.miImagen.jugar();
+  }
+
+  netflix(){
+    this.nuevoJuego.respuestaIngresada="Netflix";
+    console.log(this.nuevoJuego.respuestaIngresada);   
+    if(this.nuevoJuego.netflix()){
+      this.ganoperdio = true;
+      this.msjAcerto = "Correcto!";
+      this.MostarMensaje("Ganaste!",true);
+      console.log(this.msjAcerto);
+    }
+    else{      
+      this.ganoperdio = false;
+      this.msjAcerto = "Perdiste!";
+      this.MostarMensaje("nop, perdiste!",false);  
+      console.log(this.msjAcerto);    
+      //this.mostrarJuego = false;
+    } 
+    this.nuevoJuego.gano = false;  
+  }
+  youtuber(){
+    this.nuevoJuego.respuestaIngresada="Youtuber";
+    console.log(this.nuevoJuego.respuestaIngresada); 
+    if(this.nuevoJuego.youtuber()){
+      this.ganoperdio = true;
+      this.msjAcerto = "Correcto!";
+      this.MostarMensaje("Ganaste!",true);
+      console.log(this.msjAcerto);
+    }
+    else{      
+      this.ganoperdio = false;
+      this.msjAcerto = "Perdiste!";
+      this.MostarMensaje("nop, perdiste!",false);  
+      console.log(this.msjAcerto);    
+      //this.mostrarJuego = false;
+    } 
+    this.nuevoJuego.gano = false;  
+
   }
 
   verificar(){

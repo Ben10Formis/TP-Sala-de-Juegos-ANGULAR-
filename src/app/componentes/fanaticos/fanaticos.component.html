@@ -15,21 +15,24 @@
           </div>
           <div class="row">
             <div class="col-sm-4"></div>
-            <div class="col-sm-5" style="text-align:center">
-              
-                
-                <button type="button" mat-raised-button color="primary" (click)="ComenzarJuego()" >{{ mostrarJuego ? 'Terminar' : 'Empezar'}}</button><br />
-                
+            <div class="col-sm-4" style="text-align:center"> 
+                <button type="button" mat-raised-button color="primary" (click)="ComenzarJuego()" >{{ mostrarJuego ? 'Nueva partida' : '   Empezar   '}}</button><br />
+                <br />
                 <div *ngIf="mostrarJuego"  class="well">
+                    <button type="button" mat-raised-button color="primary" (click)="proximo()"  >Next</button><br />
+                    <br />
                     <div class="row margen-izq">  
                       <div class="col-md-12">
                         <img alt='Icono Piedra' src="./assets/imagenes/{{miImagen}}.jpg"><br /><br /><br />
-                        <p style="text-align:left">
+                        <!--<p style="text-align:left">
                             Respuesta: <input [(ngModel)]="nuevoJuego.respuestaIngresada" placeholder=" Ingrese respuesta" name="respuestaIngresada" type="text" class="form-control" style="width:50%"/>
-                        </p>
+                        </p>-->
                       </div>
                     </div>
-                    <button type="button" mat-raised-button color="accent" (click)="verificar()" >Verificar</button>
+                    <!--<button type="button" mat-raised-button color="accent" (click)="verificar()" >Verificar</button>-->
+                    <button type="button" mat-raised-button color="accent" (click)="netflix()" >Netflix</button>
+                    <button type="button" mat-raised-button color="accent" (click)="youtuber()" >YouTuber</button>
+   
                 </div>
                 <br />
                  

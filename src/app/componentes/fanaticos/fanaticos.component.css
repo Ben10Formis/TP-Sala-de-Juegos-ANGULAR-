@@ -1,6 +1,6 @@
 
 .color-fondo{
-    background-color:#ee2b9d;
+    background-color:#ffff;
 }
 
 #snackbar {
@@ -19,10 +19,10 @@
     font-size: 17px;
 }
 #snackbar.Ganador {
-    background-color: rgba(230, 17, 177, 0.973);
+    background-color: rgba(5, 70, 24, 0.973);
 }
 #snackbar.Perdedor {
-    background-color: rgb(72, 255, 0);
+    background-color: rgb(243, 12, 12);
 }
 #snackbar.show {
     visibility: visible;
