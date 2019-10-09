@@ -436,78 +436,97 @@ var Fanaticos = (function (_super) {
             case 1:
                 this.nombreImagen = '1';
                 this.respCorrecta = "merli";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 2:
                 this.nombreImagen = '2';
                 this.respCorrecta = "la casa de papel";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 3:
                 this.nombreImagen = '3';
                 this.respCorrecta = "las chicas del cable";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 4:
                 this.nombreImagen = '4';
                 this.respCorrecta = "13 reasons why";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 5:
                 this.nombreImagen = '5';
                 this.respCorrecta = "luis miguel";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 6:
                 this.nombreImagen = '6';
                 this.respCorrecta = "stranger things";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 7:
                 this.nombreImagen = '7';
                 this.respCorrecta = "black mirror";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 8:
                 this.nombreImagen = '8';
                 this.respCorrecta = "breaking bad";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 9:
                 this.nombreImagen = '9';
                 this.respCorrecta = "narcos";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 10:
                 this.nombreImagen = '10';
                 this.respCorrecta = "vikingos";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
                 break;
             case 11:
                 this.nombreImagen = '11';
                 this.respCorrecta = "deiGamer";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 12:
                 this.nombreImagen = '12';
                 this.respCorrecta = "werevertumorro";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 13:
                 this.nombreImagen = '13';
                 this.respCorrecta = "ceci de viaje";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 14:
                 this.nombreImagen = '14';
                 this.respCorrecta = "yuya";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 15:
                 this.nombreImagen = '15';
                 this.respCorrecta = "hola soy german";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 16:
                 this.nombreImagen = '16';
                 this.respCorrecta = "ana vbon";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 17:
                 this.nombreImagen = '17';
                 this.respCorrecta = "karely vlogs";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
             case 18:
                 this.nombreImagen = '18';
                 this.respCorrecta = "silvia muñoz";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
         }
         this.imgMostrar = this.nombreImagen;
         this.respuesta = this.respCorrecta;
+        this.tipoNetflixYoutuber = this.tipoNetflixYoutuberCorrecta;
         //this.jugar();
     };
     Fanaticos.prototype.mostrarJugada = function () {
@@ -517,6 +536,30 @@ var Fanaticos = (function (_super) {
     Fanaticos.prototype.verificar = function () {
         //alert(" tu resp " +this.respuestaIngresada + " la correct " +this.respuesta);
         if (this.respuestaIngresada == this.respuesta) {
+            this.gano = true;
+        }
+        if (this.gano) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    Fanaticos.prototype.netflix = function () {
+        //alert(" tu resp " +this.respuestaIngresada + " la correct " +this.tipoNetflixYoutuber);
+        if (this.respuestaIngresada == this.tipoNetflixYoutuber) {
+            this.gano = true;
+        }
+        if (this.gano) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    };
+    Fanaticos.prototype.youtuber = function () {
+        //alert(" tu resp " +this.respuestaIngresada + " la correct " +this.tipoNetflixYoutuber);
+        if (this.respuestaIngresada == this.tipoNetflixYoutuber) {
             this.gano = true;
         }
         if (this.gano) {
@@ -1369,7 +1412,7 @@ exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-b
 
 
 // module
-exports.push([module.i, "\r\n.color-fondo{\r\n    background-color:#ee2b9d;\r\n}\r\n\r\n#snackbar {\r\n    visibility: hidden;\r\n    min-width: 250px;\r\n    margin-left: -125px;\r\n   \r\n    color: #fff;\r\n    text-align: center;\r\n    border-radius: 2px;\r\n    padding: 16px;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left: 50%;\r\n    bottom: 30px;\r\n    font-size: 17px;\r\n}\r\n#snackbar.Ganador {\r\n    background-color: rgba(230, 17, 177, 0.973);\r\n}\r\n#snackbar.Perdedor {\r\n    background-color: rgb(72, 255, 0);\r\n}\r\n#snackbar.show {\r\n    visibility: visible;\r\n    animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n.fuente{\r\n    font-family: 'Gloria Hallelujah', cursive;\r\n}", ""]);
+exports.push([module.i, "\r\n.color-fondo{\r\n    background-color:#ffff;\r\n}\r\n\r\n#snackbar {\r\n    visibility: hidden;\r\n    min-width: 250px;\r\n    margin-left: -125px;\r\n   \r\n    color: #fff;\r\n    text-align: center;\r\n    border-radius: 2px;\r\n    padding: 16px;\r\n    position: fixed;\r\n    z-index: 1;\r\n    left: 50%;\r\n    bottom: 30px;\r\n    font-size: 17px;\r\n}\r\n#snackbar.Ganador {\r\n    background-color: rgba(5, 70, 24, 0.973);\r\n}\r\n#snackbar.Perdedor {\r\n    background-color: rgb(243, 12, 12);\r\n}\r\n#snackbar.show {\r\n    visibility: visible;\r\n    animation: fadein 0.5s, fadeout 0.5s 2.5s;\r\n}\r\n\r\n.fuente{\r\n    font-family: 'Gloria Hallelujah', cursive;\r\n}", ""]);
 
 // exports
 
@@ -1382,7 +1425,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/fanaticos/fanaticos.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<p> fanaticos works! </p>-->\n\n<link href=\"https://fonts.googleapis.com/css?family=Permanent+Marker\" rel=\"stylesheet\"> \n<div class=\"container-fluid text-center\">    \n  <div class=\"row content\">\n    <div class=\"col-sm-1 sidenav\">\n    </div>\n    <div class=\"col-sm-10 text-left\"> \n      <div class=\"content\">\n        <div class=\"well color-fondo\">\n          <div style=\"text-align:center\">\n            <h1 class=\"fuente\">\n              {{nuevoJuego.nombre}}\n            </h1>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-sm-4\"></div>\n            <div class=\"col-sm-5\" style=\"text-align:center\">\n              \n                \n                <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"ComenzarJuego()\" >{{ mostrarJuego ? 'Terminar' : 'Empezar'}}</button><br />\n                \n                <div *ngIf=\"mostrarJuego\"  class=\"well\">\n                    <div class=\"row margen-izq\">  \n                      <div class=\"col-md-12\">\n                        <img alt='Icono Piedra' src=\"./assets/imagenes/{{miImagen}}.jpg\"><br /><br /><br />\n                        <p style=\"text-align:left\">\n                            Respuesta: <input [(ngModel)]=\"nuevoJuego.respuestaIngresada\" placeholder=\" Ingrese respuesta\" name=\"respuestaIngresada\" type=\"text\" class=\"form-control\" style=\"width:50%\"/>\n                        </p>\n                      </div>\n                    </div>\n                    <button type=\"button\" mat-raised-button color=\"accent\" (click)=\"verificar()\" >Verificar</button>\n                </div>\n                <br />\n                 \n              <!-- <h1 [hidden]=\"!this.nuevoJuego.gano\" style=\"text-align:center\">Ganaste! </h1>\n              <h1 [hidden]=\"!this.perdio\">Perdiste!</h1> -->\n            </div>\n            <div class=\"col-sm-3\"></div>\n          </div> \n          <div id=\"snackbar\">{{Mensajes}}</div> \n      \n        </div>\n      </div>\n    <div class=\"col-sm-2 sidenav\">\n    </div>\n  </div>\n</div>\n"
+module.exports = "<!--<p> fanaticos works! </p>-->\n\n<link href=\"https://fonts.googleapis.com/css?family=Permanent+Marker\" rel=\"stylesheet\"> \n<div class=\"container-fluid text-center\">    \n  <div class=\"row content\">\n    <div class=\"col-sm-1 sidenav\">\n    </div>\n    <div class=\"col-sm-10 text-left\"> \n      <div class=\"content\">\n        <div class=\"well color-fondo\">\n          <div style=\"text-align:center\">\n            <h1 class=\"fuente\">\n              {{nuevoJuego.nombre}}\n            </h1>\n          </div>\n          <div class=\"row\">\n            <div class=\"col-sm-4\"></div>\n            <div class=\"col-sm-4\" style=\"text-align:center\"> \n                <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"ComenzarJuego()\" >{{ mostrarJuego ? 'Nueva partida' : '   Empezar   '}}</button><br />\n                <br />\n                <div *ngIf=\"mostrarJuego\"  class=\"well\">\n                    <button type=\"button\" mat-raised-button color=\"primary\" (click)=\"proximo()\"  >Next</button><br />\n                    <br />\n                    <div class=\"row margen-izq\">  \n                      <div class=\"col-md-12\">\n                        <img alt='Icono Piedra' src=\"./assets/imagenes/{{miImagen}}.jpg\"><br /><br /><br />\n                        <!--<p style=\"text-align:left\">\n                            Respuesta: <input [(ngModel)]=\"nuevoJuego.respuestaIngresada\" placeholder=\" Ingrese respuesta\" name=\"respuestaIngresada\" type=\"text\" class=\"form-control\" style=\"width:50%\"/>\n                        </p>-->\n                      </div>\n                    </div>\n                    <!--<button type=\"button\" mat-raised-button color=\"accent\" (click)=\"verificar()\" >Verificar</button>-->\n                    <button type=\"button\" mat-raised-button color=\"accent\" (click)=\"netflix()\" >Netflix</button>\n                    <button type=\"button\" mat-raised-button color=\"accent\" (click)=\"youtuber()\" >YouTuber</button>\n   \n                </div>\n                <br />\n                 \n              <!-- <h1 [hidden]=\"!this.nuevoJuego.gano\" style=\"text-align:center\">Ganaste! </h1>\n              <h1 [hidden]=\"!this.perdio\">Perdiste!</h1> -->\n            </div>\n            <div class=\"col-sm-3\"></div>\n          </div> \n          <div id=\"snackbar\">{{Mensajes}}</div> \n      \n        </div>\n      </div>\n    <div class=\"col-sm-2 sidenav\">\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -1411,13 +1454,56 @@ var FanaticosComponent = (function () {
         this.mostrarJuego = false;
         console.info("Inicio Fanaticos");
         this.miImagen = '1';
+        this.next = true;
     }
+    FanaticosComponent.prototype.proximo = function () {
+        this.nuevoJuego.comenzar();
+        this.miImagen = this.nuevoJuego.imgMostrar;
+        this.nuevoJuego.respuesta;
+    };
     FanaticosComponent.prototype.ComenzarJuego = function () {
+        console.log(this.mostrarJuego);
         this.nuevoJuego.comenzar();
         this.mostrarJuego = !this.mostrarJuego;
         this.miImagen = this.nuevoJuego.imgMostrar;
         this.nuevoJuego.respuesta;
         //this.miImagen.jugar();
+    };
+    FanaticosComponent.prototype.netflix = function () {
+        this.nuevoJuego.respuestaIngresada = "Netflix";
+        console.log(this.nuevoJuego.respuestaIngresada);
+        if (this.nuevoJuego.netflix()) {
+            this.ganoperdio = true;
+            this.msjAcerto = "Correcto!";
+            this.MostarMensaje("Ganaste!", true);
+            console.log(this.msjAcerto);
+        }
+        else {
+            this.ganoperdio = false;
+            this.msjAcerto = "Perdiste!";
+            this.MostarMensaje("nop, perdiste!", false);
+            console.log(this.msjAcerto);
+            //this.mostrarJuego = false;
+        }
+        this.nuevoJuego.gano = false;
+    };
+    FanaticosComponent.prototype.youtuber = function () {
+        this.nuevoJuego.respuestaIngresada = "Youtuber";
+        console.log(this.nuevoJuego.respuestaIngresada);
+        if (this.nuevoJuego.youtuber()) {
+            this.ganoperdio = true;
+            this.msjAcerto = "Correcto!";
+            this.MostarMensaje("Ganaste!", true);
+            console.log(this.msjAcerto);
+        }
+        else {
+            this.ganoperdio = false;
+            this.msjAcerto = "Perdiste!";
+            this.MostarMensaje("nop, perdiste!", false);
+            console.log(this.msjAcerto);
+            //this.mostrarJuego = false;
+        }
+        this.nuevoJuego.gano = false;
     };
     FanaticosComponent.prototype.verificar = function () {
         if (this.nuevoJuego.verificar()) {
@@ -2125,7 +2211,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/login/login.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--div style=\"margin: 20% auto; width: 30%;\">\n  <div class=\"row\">\n    <div class=\"col-lg-6\">\n      Usuario\n    </div>\n    <div class=\"col-lg-6\">\n      <input type=\"text\"  [(ngModel)]=\"usuario\">\n    </div>\n  </div>\n  <div class=\"row\" style=\"margin-top: 5px\">\n    <div class=\"col-lg-6\">\n      Clave\n    </div>\n    <div class=\"col-lg-6\">\n      <input type=\"password\" [(ngModel)]=\"clave\">\n    </div>\n  </div>\n  <div class=\"row\" style=\"text-align: center; margin-top: 10px\">\n    <div class=\"col-lg-12\">\n      <button (click)=\"Entrar()\" class=\"btn btn-info btn-lg\" >Entrar</button>\n    </div>\n  </div>\n</div-->\n<!--login original del profesor\n <div class=\"container\" >\n  <div class=\"jumbotron\" style=\"padding:50px;\">\n    <form action=\"return true;\">\n      <div class=\"imgcontainer\">\n        <img src=\"./assets/imagenes/login.png\" alt=\"Avatar\" class=\"avatar\" max-width=\"104\" >\n      </div>\n\n      <div class=\"container\">\n        <label><b>Usuario</b></label>\n        <input type=\"text\" placeholder=\"Usuario\"  [(ngModel)]=\"usuario\"  name=\"uname\" required>\n\n        <label><b>Clave</b></label>\n        <input type=\"password\" placeholder=\"Clave\"  [(ngModel)]=\"clave\" name=\"psw\" required>\n            \n        <button *ngIf=\"logeando\"  (click)=\"MoverBarraDeProgreso()\" >Ingresar</button>\n       \n        <div *ngIf=\"!logeando\" class=\"progress\">\n            <div class=\"progress-bar progress-bar-info progress-bar-striped active\" [class]=\"clase\" role=\"progressbar\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width]=\"ProgresoDeAncho\" >\n              {{progresoMensaje}} - {{progreso}}%\n            </div>\n        </div>\n       \n        <input type=\"checkbox\" checked=\"checked\"> Recordar mis datos\n      </div>\n\n      <div class=\"container\" style=\"background-color:#f1f1f1\">\n        <button type=\"button\" class=\"cancelbtn\">Cancelar</button>\n        <button type=\"button\" class=\"aceptbtn\" routerLink=\"/Registro\" >Registrarse</button>\n        <span class=\"psw\">Te olvidaste <a href=\"#\">la clave?</a></span>\n      </div>\n     \n    </form>\n  </div>\n</div>\n-->\n\n<!--opcion de login-->\n<!--Encabezado-->\n<div class=\"container\">\n    <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>                        \n      </button>\n      <a class=\"navbar-brand\" routerLink=\"/Principal\">Sala De Juegos</a>\n    </div>\n    <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a routerLink=\"/Reegistro\">Registrarse</a></li>\n      </ul>\n    </div>\n</div>\n\n<!-- First Container -->\n<div id =\"quiwn\"class=\"container-fluid bg-1 text-center\">\n    <div *ngIf=\"!logeando\" class=\"progress\">\n        <div class=\"progress-bar progress-bar-info progress-bar-striped active\" [class]=\"clase\" role=\"progressbar\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width]=\"ProgresoDeAncho\" >\n          {{progresoMensaje}} - {{progreso}}%\n        </div>\n    </div>\n    <div class=\"formIngreso animated bounceIn\">                  \n        <form id=\"login\" class=\"login\">\n          <img  src=\"./assets/imagenes/login1.jpg\"class=\"img-responsive\" id=\"avatar\">\n          <div class=\"form-group\">\n            <label>Usuario</label>\n            <input type=\"email\" class=\"form-control\" name=\"usuario\" id=\"usuario\" value=\"usuario\" [(ngModel)]=\"usuario\" placeholder=\"Usuario\" required=\"required\" autofocus=\"autofocus\">\n          </div>\n          <div class=\"form-group\">\n            <label>Contraseña</label>\n            <input type=\"password\" class=\"form-control\" name=\"clave\" id=\"clave\" [(ngModel)]=\"clave\" placeholder=\"Contraseña\" required=\"required\"> \n          </div>\n\n          <button *ngIf=\"logeando\" (click)=\"CargarAdministrador()\">Entrar como Usuario Administrador</button>\n          \n          <div class=\"form-group\">\n            <label>\n              <!-- <input class=\"\" id=\"recordarme\" type=\"checkbox\" checked> Recuerdame -->\n              <mat-checkbox type=\"checkbox\" checked=\"checked\"> Recordar mis datos!</mat-checkbox>\n            </label>\n          </div>\n          <input type=\"submit\" id=\"logIn\" class=\"btn btn-block btn-success\" (click)=\"MoverBarraDeProgreso()\" value=\"enviar\">      \n        \n          <button type=\"button\" class=\"btn btn-info\" routerLink=\"/Registro\" >Registrarse</button>\n         \n        </form>\n      </div>\n  <h2></h2>\n</div>\n"
+module.exports = "<!--div style=\"margin: 20% auto; width: 30%;\">\n  <div class=\"row\">\n    <div class=\"col-lg-6\">\n      Usuario\n    </div>\n    <div class=\"col-lg-6\">\n      <input type=\"text\"  [(ngModel)]=\"usuario\">\n    </div>\n  </div>\n  <div class=\"row\" style=\"margin-top: 5px\">\n    <div class=\"col-lg-6\">\n      Clave\n    </div>\n    <div class=\"col-lg-6\">\n      <input type=\"password\" [(ngModel)]=\"clave\">\n    </div>\n  </div>\n  <div class=\"row\" style=\"text-align: center; margin-top: 10px\">\n    <div class=\"col-lg-12\">\n      <button (click)=\"Entrar()\" class=\"btn btn-info btn-lg\" >Entrar</button>\n    </div>\n  </div>\n</div-->\n<!--login original del profesor\n <div class=\"container\" >\n  <div class=\"jumbotron\" style=\"padding:50px;\">\n    <form action=\"return true;\">\n      <div class=\"imgcontainer\">\n        <img src=\"./assets/imagenes/login.png\" alt=\"Avatar\" class=\"avatar\" max-width=\"104\" >\n      </div>\n\n      <div class=\"container\">\n        <label><b>Usuario</b></label>\n        <input type=\"text\" placeholder=\"Usuario\"  [(ngModel)]=\"usuario\"  name=\"uname\" required>\n\n        <label><b>Clave</b></label>\n        <input type=\"password\" placeholder=\"Clave\"  [(ngModel)]=\"clave\" name=\"psw\" required>\n            \n        <button *ngIf=\"logeando\"  (click)=\"MoverBarraDeProgreso()\" >Ingresar</button>\n       \n        <div *ngIf=\"!logeando\" class=\"progress\">\n            <div class=\"progress-bar progress-bar-info progress-bar-striped active\" [class]=\"clase\" role=\"progressbar\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width]=\"ProgresoDeAncho\" >\n              {{progresoMensaje}} - {{progreso}}%\n            </div>\n        </div>\n       \n        <input type=\"checkbox\" checked=\"checked\"> Recordar mis datos\n      </div>\n\n      <div class=\"container\" style=\"background-color:#f1f1f1\">\n        <button type=\"button\" class=\"cancelbtn\">Cancelar</button>\n        <button type=\"button\" class=\"aceptbtn\" routerLink=\"/Registro\" >Registrarse</button>\n        <span class=\"psw\">Te olvidaste <a href=\"#\">la clave?</a></span>\n      </div>\n     \n    </form>\n  </div>\n</div>\n-->\n\n<!--opcion de login-->\n<!--Encabezado-->\n<div class=\"container\">\n  <!--  <div class=\"navbar-header\">\n      <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>\n        <span class=\"icon-bar\"></span>                        \n      </button>\n      <a class=\"navbar-brand\" routerLink=\"/Principal\">Sala De Juegos</a>\n    </div>-->\n    <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n      <ul class=\"nav navbar-nav navbar-right\">\n        <li><a routerLink=\"/Registro\">Registrarse</a></li>\n      </ul>\n    </div>\n</div>\n\n<!-- First Container -->\n<div id =\"quiwn\"class=\"container-fluid bg-1 text-center\">\n    <div *ngIf=\"!logeando\" class=\"progress\">\n        <div class=\"progress-bar progress-bar-info progress-bar-striped active\" [class]=\"clase\" role=\"progressbar\" aria-valuenow=\"10\" aria-valuemin=\"0\" aria-valuemax=\"100\" [style.width]=\"ProgresoDeAncho\" >\n          {{progresoMensaje}} - {{progreso}}%\n        </div>\n    </div>\n    <div class=\"formIngreso animated bounceIn\">                  \n        <form id=\"login\" class=\"login\">\n          <img  src=\"./assets/imagenes/login1.jpg\"class=\"img-responsive\" id=\"avatar\">\n          <div class=\"form-group\">\n            <label>Usuario</label>\n            <input type=\"email\" class=\"form-control\" name=\"usuario\" id=\"usuario\" value=\"usuario\" [(ngModel)]=\"usuario\" placeholder=\"Usuario\" required=\"required\" autofocus=\"autofocus\">\n          </div>\n          <div class=\"form-group\">\n            <label>Contraseña</label>\n            <input type=\"password\" class=\"form-control\" name=\"clave\" id=\"clave\" [(ngModel)]=\"clave\" placeholder=\"Contraseña\" required=\"required\"> \n          </div>\n\n          <button *ngIf=\"logeando\" (click)=\"CargarAdministrador()\">Entrar como Usuario Administrador</button>\n          \n          <div class=\"form-group\">\n            <label>\n              <!-- <input class=\"\" id=\"recordarme\" type=\"checkbox\" checked> Recuerdame -->\n              <mat-checkbox type=\"checkbox\" checked=\"checked\"> Recordar mis datos!</mat-checkbox>\n            </label>\n          </div>\n          <input type=\"submit\" id=\"logIn\" class=\"btn btn-block btn-success\" (click)=\"MoverBarraDeProgreso()\" value=\"Ingresar\">      \n        \n          <button type=\"button\" class=\"btn btn-info\" routerLink=\"/Registro\" >Registrarse</button>\n         \n        </form>\n      </div>\n  <h2></h2>\n</div>\n"
 
 /***/ }),
 
@@ -2772,7 +2858,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/quien-soy/quien-soy.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "\n\n<nav class=\"navbar navbar-default\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" routerLink=\"/Principal\">Sala De Juegos</a>\n      </div>\n\n      <ul class=\"nav navbar-nav\">\n          <li><a href=\"/QuienSoy#quien\">Quién</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav\">\n          <li><a href=\"/QuienSoy#que\">Qué es</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav\">\n          <li><a href=\"/QuienSoy#donde\">Dónde</a></li>\n      </ul>\n\n    </div>\n</nav>\n  \n  <!-- First Container -->\n  <div id =\"quien\"class=\"container-fluid bg-1 text-center\">\n      <h3 class=\"margin\">Quién Soy?</h3>\n      <img src=\"./assets/imagenes/quiensoy4.png\" class=\"img-responsive img-circle margin\" style=\"display:inline\" alt=\"Bird\" width=\"350\" height=\"350\">\n      <h3>Romina Ibarra - Alumna de 4°B</h3>\n    </div>\n    \n    <!-- Second Container -->\n    <div id =\"que\" class=\"container-fluid bg-2 text-center\">\n      <h3 class=\"margin\">Esto es un trabajo práctico</h3>\n      <p>Cada universidad, cada facultad, cada carrera y obviamente cada materia en particular tiene estrategias didácticas y formas de evaluación diferentes. A pesar de que en muchos casos las universidades intentan estandarizar la forma de dictar clase para generar un orden en las planificaciones cuatrimestre a cuatrimestre, las formas de evaluación son elementales tanto para las instituciones y profesores como para los alumnos. A través de la evaluación formativa el educador busca información en el alumno para lograr comprender cómo se está\n        produciendo el proceso de aprendizaje y poder reajustar los objetivos pedagógicos. Y para el alumno es una muestra del progreso que está logrando y si puede aplicar, materializar y darle visibilidad a la comprensión del tema. Según Black y William (1998), la evaluación formativa, ayuda a que los estudiantes sean independientes a la hora del aprendizaje, es decir, se presenta como receptor, autorregulador y centro de esa misma evaluación. </p>\n      <h4 class=\"tituloInstruccion\">Instrucciones de como Jugar los Juegos</h4>\n          <ul>\n            <li><p class=\"instrucciones\">Agilidad Aritmetica: Tenes 7 segundos para responder correctamente<br>una operacion aritmetica dada entre dos numeros y un operador.</p></li>\n            <li><p class=\"instrucciones\">Adivina el Numero: Usted tiene que adivinar un numero entre 1 y 100.</p></li>\n            <li><p class=\"instrucciones\">Piedra, Papel o Tijera: El clasico juego donde tenes que elegir una de las opciones,<br>recorda que jugas contra la máquina.</p></li>\n            <li><p class=\"instrucciones\">Anagrama: Tenes que ordenar una palabra desorganizada e ingresar la palabra correcta.</p></li>\n            <li><p class=\"instrucciones\">Fanáticos: Demostra cuanto sabes de tus series y youtubers favoritos<br>ingresando el nombre de la serie o vblog. Si no sabes podes hacer NEXT!</p></li>\n          </ul>\n\n          <button mat-raised-button color=\"accent\" (click)=\"IrAMiJuego()\" >Jugar ya!</button>\n    </div>\n    \n    <!-- Third Container (Grid) -->\n    <div id =\"donde\" class=\"container-fluid bg-3 text-center\">    \n      <h3 class=\"margin\">Dónde Funciona?</h3><br>\n      <div class=\"row\">\n        <div class=\"col-sm-4\">\n          <p>Con las tecnologias WEB que permiten desarrollar aplicaciones multiplataforma</p>\n          <img src=\"/assets/imagenes/quiensoy1.png\" class=\"img-responsive margin imagenDeQuienSoy\"  alt=\"Image\">\n        </div>\n        <div class=\"col-sm-4\"> \n          <p>Principalmente orientada a la experiencia del usuario, garantizando que su funcionamieto sea fluido y pensado en el comportamiento del usuario y en la funcionalidad.</p>\n          <img src=\"/assets/imagenes/quiensoy2.jpg\" class=\"img-responsive margin imagenDeQuienSoy\" alt=\"Image\">\n        </div>\n        <div class=\"col-sm-4\"> \n          <p>Para los sistemas operativos lideres en el mercado del consumo masivo</p>\n          <img src=\"/assets/imagenes/quiensoy3.png\" class=\"img-responsive margin imagenDeQuienSoy\" alt=\"Image\">\n        </div>\n      </div>\n    </div>\n    \n    <!-- Footer -->\n    <footer class=\"container-fluid bg-4 text-center\">\n      <p>Modificado por <a href=\"https://github.com/Ben10Formis/\">Romina Ibarra - Github</a></p> \n    </footer>"
+module.exports = "\n\n<nav class=\"navbar navbar-default\">\n    <div class=\"container\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" routerLink=\"/Principal\">Sala De Juegos</a>\n      </div>\n\n      <ul class=\"nav navbar-nav\">\n          <li><a href=\"/QuienSoy#quien\">Quién</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav\">\n          <li><a href=\"/QuienSoy#que\">Qué es</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav\">\n          <li><a href=\"/QuienSoy#donde\">Dónde</a></li>\n      </ul>\n\n    </div>\n</nav>\n  \n  <!-- First Container -->\n  <div id =\"quien\"class=\"container-fluid bg-1 text-center\">\n      <h3 class=\"margin\">Quién Soy?</h3>\n      <img src=\"./assets/imagenes/quiensoy4.png\" class=\"img-responsive img-circle margin\" style=\"display:inline\" alt=\"Bird\" width=\"350\" height=\"350\">\n      <h3>Romina Ibarra - Alumna de 4°B</h3>\n    </div>\n    \n    <!-- Second Container -->\n    <div id =\"que\" class=\"container-fluid bg-2 text-center\">\n      <h3 class=\"margin\">Esto es un trabajo práctico</h3>\n      <p>Cada universidad, cada facultad, cada carrera y obviamente cada materia en particular tiene estrategias didácticas y formas de evaluación diferentes. A pesar de que en muchos casos las universidades intentan estandarizar la forma de dictar clase para generar un orden en las planificaciones cuatrimestre a cuatrimestre, las formas de evaluación son elementales tanto para las instituciones y profesores como para los alumnos. A través de la evaluación formativa el educador busca información en el alumno para lograr comprender cómo se está\n        produciendo el proceso de aprendizaje y poder reajustar los objetivos pedagógicos. Y para el alumno es una muestra del progreso que está logrando y si puede aplicar, materializar y darle visibilidad a la comprensión del tema. Según Black y William (1998), la evaluación formativa, ayuda a que los estudiantes sean independientes a la hora del aprendizaje, es decir, se presenta como receptor, autorregulador y centro de esa misma evaluación. </p>\n      <h4 class=\"tituloInstruccion\">Instrucciones de como Jugar los Juegos</h4>\n          <ul>\n            <li><p class=\"instrucciones\">Agilidad Aritmetica: Tenes 7 segundos para responder correctamente<br>una operacion aritmetica dada entre dos numeros y un operador.</p></li>\n            <li><p class=\"instrucciones\">Adivina el Numero: Usted tiene que adivinar un numero entre 1 y 100.</p></li>\n            <li><p class=\"instrucciones\">Piedra, Papel o Tijera: El clasico juego donde tenes que elegir una de las opciones,<br>recorda que jugas contra la máquina.</p></li>\n            <li><p class=\"instrucciones\">Anagrama: Tenes que ordenar una palabra desorganizada e ingresar la palabra correcta.</p></li>\n            <li><p class=\"instrucciones\">Fanáticos: Demostra cuanto sabes de tus series y youtubers favoritos<br>ingresando el nombre de la serie o vblog. Si no sabes podes hacer NEXT!</p></li>\n          </ul>\n\n          <button mat-raised-button color=\"accent\" (click)=\"IrAMiJuego()\" >Jugar ya!</button>\n    </div>\n    \n    <!-- Third Container (Grid) -->\n    <div id =\"donde\" class=\"container-fluid bg-3 text-center\">    \n      <h3 class=\"margin\">Dónde Funciona?</h3><br>\n      <div class=\"row\">\n        <div class=\"col-sm-4\">\n          <p>Con las tecnologias WEB que permiten desarrollar aplicaciones multiplataforma</p>\n          <img src=\"./assets/imagenes/quiensoy1.png\" class=\"img-responsive margin imagenDeQuienSoy\"  alt=\"Image\">\n        </div>\n        <div class=\"col-sm-4\"> \n          <p>Principalmente orientada a la experiencia del usuario, garantizando que su funcionamieto sea fluido y pensado en el comportamiento del usuario y en la funcionalidad.</p>\n          <img src=\"./assets/imagenes/quiensoy2.jpg\" class=\"img-responsive margin imagenDeQuienSoy\" alt=\"Image\">\n        </div>\n        <div class=\"col-sm-4\"> \n          <p>Para los sistemas operativos lideres en el mercado del consumo masivo</p>\n          <img src=\"./assets/imagenes/quiensoy3.png\" class=\"img-responsive margin imagenDeQuienSoy\" alt=\"Image\">\n        </div>\n      </div>\n    </div>\n    \n    <!-- Footer -->\n    <footer class=\"container-fluid bg-4 text-center\">\n      <p>Modificado por <a href=\"https://github.com/Ben10Formis/\">Romina Ibarra - Github</a></p> \n    </footer>"
 
 /***/ }),
 
