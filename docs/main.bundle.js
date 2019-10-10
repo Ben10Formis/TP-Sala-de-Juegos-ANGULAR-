@@ -112,6 +112,7 @@ AppComponent = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_36_ng2_smart_table__ = __webpack_require__("../../../../ng2-smart-table/index.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_37__angular_platform_browser_animations__ = __webpack_require__("../../../platform-browser/@angular/platform-browser/animations.es5.js");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_38__material__ = __webpack_require__("../../../../../src/app/material.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_39__componentes_tateti_tateti_component__ = __webpack_require__("../../../../../src/app/componentes/tateti/tateti.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -172,6 +173,7 @@ const MiRuteo = [{path: 'error' , component: ErrorComponent},
 //https://material.angular.io/guide/getting-started
  //animaciones integradas
 
+
 var AppModule = (function () {
     function AppModule() {
     }
@@ -204,7 +206,8 @@ AppModule = __decorate([
             __WEBPACK_IMPORTED_MODULE_32__componentes_input_jugadores_input_jugadores_component__["a" /* InputJugadoresComponent */],
             __WEBPACK_IMPORTED_MODULE_33__pipes_sexo_pipe__["a" /* SexoPipe */],
             __WEBPACK_IMPORTED_MODULE_34__componentes_piedra_papel_tijera_piedra_papel_tijera_component__["a" /* PiedraPapelTijeraComponent */],
-            __WEBPACK_IMPORTED_MODULE_35__componentes_fanaticos_fanaticos_component__["a" /* FanaticosComponent */]
+            __WEBPACK_IMPORTED_MODULE_35__componentes_fanaticos_fanaticos_component__["a" /* FanaticosComponent */],
+            __WEBPACK_IMPORTED_MODULE_39__componentes_tateti_tateti_component__["a" /* TatetiComponent */]
         ],
         imports: [
             __WEBPACK_IMPORTED_MODULE_0__angular_platform_browser__["a" /* BrowserModule */],
@@ -703,6 +706,76 @@ var JuegoPiedraPapelTijera = (function (_super) {
 }(__WEBPACK_IMPORTED_MODULE_0__clases_juego__["a" /* Juego */]));
 
 //# sourceMappingURL=juego-piedra-papel-tijera.js.map
+
+/***/ }),
+
+/***/ "../../../../../src/app/clases/juego-tateti.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return JuegoTateti; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__clases_juego__ = __webpack_require__("../../../../../src/app/clases/juego.ts");
+var __extends = (this && this.__extends) || (function () {
+    var extendStatics = Object.setPrototypeOf ||
+        ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
+        function (d, b) { for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p]; };
+    return function (d, b) {
+        extendStatics(d, b);
+        function __() { this.constructor = d; }
+        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+    };
+})();
+
+var JuegoTateti = (function (_super) {
+    __extends(JuegoTateti, _super);
+    function JuegoTateti(nombre, gano, jugador) {
+        var _this = _super.call(this, "Ta Te Ti", true, jugador) || this;
+        _this.tablero = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+        _this.jugadaUsuario = 0;
+        _this.juegoTerminado = true;
+        return _this;
+    }
+    JuegoTateti.prototype.verificarTresEnLinea = function (marca) {
+        if ((this.tablero[0][0] == marca && this.tablero[0][1] == marca && this.tablero[0][2] == marca) ||
+            (this.tablero[1][0] == marca && this.tablero[1][1] == marca && this.tablero[1][2] == marca) ||
+            (this.tablero[2][0] == marca && this.tablero[2][1] == marca && this.tablero[2][2] == marca) ||
+            //verticales
+            (this.tablero[0][0] == marca && this.tablero[1][0] == marca && this.tablero[2][0] == marca) ||
+            (this.tablero[0][1] == marca && this.tablero[1][1] == marca && this.tablero[2][1] == marca) ||
+            (this.tablero[0][2] == marca && this.tablero[1][2] == marca && this.tablero[2][2] == marca) ||
+            //diagonales
+            (this.tablero[0][0] == marca && this.tablero[1][1] == marca && this.tablero[2][2] == marca) ||
+            (this.tablero[0][2] == marca && this.tablero[1][1] == marca && this.tablero[2][0] == marca)) {
+            this.juegoTerminado = true;
+            if (marca == 'O')
+                this.gano = true;
+            // this.reset();
+        }
+        return this.juegoTerminado;
+    };
+    JuegoTateti.prototype.verificar = function () {
+        if (this.juegoTerminado && this.gano)
+            return true;
+        else
+            return false;
+    };
+    JuegoTateti.prototype.reset = function () {
+        this.gano = false;
+        this.tablero = [
+            ["", "", ""],
+            ["", "", ""],
+            ["", "", ""]
+        ];
+        //console.info("tablero: ", this.tablero)
+    };
+    return JuegoTateti;
+}(__WEBPACK_IMPORTED_MODULE_0__clases_juego__["a" /* Juego */]));
+
+//# sourceMappingURL=juego-tateti.js.map
 
 /***/ }),
 
@@ -2476,7 +2549,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/menu-card/menu-card.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"container\" >\n    <div class=\"card\">\n      <img class=\"img-thumbnail\"   src=\"./assets/imagenes/cerebro.jpg\" alt=\"Avatar\" style=\"width:100%\">\n      <h1>Velocidad y agilidad aritmética </h1>\n      <p class=\"title\">Juego de agilidad mental</p>\n      <!--<p>UTN FRA </p>-->\n  \n      <!--<a href=\"#\"><i class=\"fa fa-dribbble\"></i></a> \n      <a href=\"#\"><i class=\"fa fa-twitter\"></i></a> \n      <a href=\"#\"><i class=\"fa fa-linkedin\"></i></a> \n      <a href=\"#\"><i class=\"fa fa-facebook\"></i></a> -->\n      <p>           <button class=\"button\"  (click)=\"Juego('Agilidad')\">Jugar</button></p>\n    \n    </div>\n    <div class=\"card\">\n      <img class=\"img-thumbnail\" src=\"./assets/imagenes/ppt.jpg\" alt=\"Avatar\" style=\"width:100%\">\n      <h1>Piedra Papel o Tijera</h1>\n      <p class=\"title\">Juego contra la máquina</p>\n      \n      <p>           <button class=\"button\"  (click)=\"Juego('PiedraPapelTijera')\">Jugar</button></p>\n    </div>\n    <div class=\"card\">\n      <img  class=\"img-thumbnail\"  src=\"./assets/imagenes/adivina.png\" alt=\"Avatar\" style=\"width:100%\">\n      <h1>Adivina el número secreto</h1>\n      <p class=\"title\">Juego de estrategia</p>\n      \n      <p>           <button class=\"button\"  (click)=\"Juego('Adivina')\">Jugar</button></p>\n    </div>\n    <div class=\"card\">\n        <img  class=\"img-thumbnail\"  src=\"./assets/imagenes/fanaticos.jpg\" alt=\"Avatar\" style=\"width:100%\">\n        <h1>Netflix y Youtubers</h1>\n        <p class=\"title\">Juego asociativo</p>\n        \n        <p>           <button class=\"button\"  (click)=\"Juego('Fanaticos')\">Jugar</button></p>\n    </div>\n    <div class=\"card\">\n        <img  class=\"img-thumbnail\"  src=\"./assets/imagenes/anagrama.png\" alt=\"Avatar\" style=\"width:100%\">\n        <h1>Anagrama</h1>\n        <p class=\"title\">Juego contra la máquina</p>\n        \n        <p>           <button class=\"button\"  (click)=\"Juego('Anagrama')\">Jugar</button></p> <!--Anagrama esta en la clase de anagrama: JuegoAnagrama donde se define-->\n    </div>\n\n  </div>"
+module.exports = "<div class=\"container\" >\n<!--Velocidad y agilidad aritmética --> \n    <div class=\"card\">\n      <img class=\"img-thumbnail\"   src=\"./assets/imagenes/cerebro.jpg\" alt=\"Avatar\" style=\"width:100%\">\n      <h1>Agilidad aritmética </h1>\n      <p class=\"title\">Juego de agilidad mental</p>\n      <!--<p>UTN FRA </p>-->\n  \n      <!--<a href=\"#\"><i class=\"fa fa-dribbble\"></i></a> \n      <a href=\"#\"><i class=\"fa fa-twitter\"></i></a> \n      <a href=\"#\"><i class=\"fa fa-linkedin\"></i></a> \n      <a href=\"#\"><i class=\"fa fa-facebook\"></i></a> -->\n      <p>           <button class=\"button\"  (click)=\"Juego('Agilidad')\">Jugar</button></p>\n    \n    </div>\n<!--Piedra Papel o Tijera--> \n    <div class=\"card\">\n      <img class=\"img-thumbnail\" src=\"./assets/imagenes/ppt.jpg\" alt=\"Avatar\" style=\"width:100%\">\n      <h1>Piedra Papel o Tijera</h1>\n      <p class=\"title\">Juego contra la máquina</p>\n      \n      <p>           <button class=\"button\"  (click)=\"Juego('PiedraPapelTijera')\">Jugar</button></p>\n    </div>\n<!--Adivina el número secreto--> \n    <div class=\"card\">\n      <img  class=\"img-thumbnail\"  src=\"./assets/imagenes/adivina.png\" alt=\"Avatar\" style=\"width:100%\">\n      <h1>Adivina el número secreto</h1>\n      <p class=\"title\">Juego de estrategia</p>\n      \n      <p>           <button class=\"button\"  (click)=\"Juego('Adivina')\">Jugar</button></p>\n    </div>\n<!--Netflix y Youtubers--> \n    <div class=\"card\">\n        <img  class=\"img-thumbnail\"  src=\"./assets/imagenes/fanaticos.jpg\" alt=\"Avatar\" style=\"width:100%\">\n        <h1>Netflix & Youtubers</h1>\n        <p class=\"title\">Juego asociativo</p>\n        \n        <p>           <button class=\"button\"  (click)=\"Juego('Fanaticos')\">Jugar</button></p>\n    </div>\n<!--Anagrama-->  \n    <div class=\"card\">\n        <img  class=\"img-thumbnail\"  src=\"./assets/imagenes/anagrama.png\" alt=\"Avatar\" style=\"width:100%\">\n        <h1> Anagrama </h1>\n        <h1>  </h1>\n        <p class=\"title\">Juego contra la máquina</p>\n        \n        <p>           <button class=\"button\"  (click)=\"Juego('Anagrama')\">Jugar</button></p>\n    </div>\n<!--Tateti-->    \n    <div class=\"card\">\n        <img  class=\"img-thumbnail\"  src=\"./assets/imagenes/tateti.jpg\" alt=\"Avatar\" style=\"width:100%\">\n        <h1>Nuevo juego el Ta  te  ti !!!</h1>\n\n        <p class=\"title\">Juego contra la máquina</p>\n        \n        <p>           <button class=\"button\"  (click)=\"Juego('Tateti')\">Jugar</button></p> \n    </div>\n</div>"
 
 /***/ }),
 
@@ -2526,7 +2599,10 @@ var MenuCardComponent = (function () {
                 this.router.navigate(['/Juegos/Fanaticos']);
                 break;
             case 'Anagrama':
-                this.router.navigate(['/Juegos/Anagrama']); //Anagrama esta en la clase JuegoAnagrama      
+                this.router.navigate(['/Juegos/Anagrama']);
+                break;
+            case 'Tateti':
+                this.router.navigate(['/Juegos/Tateti']);
                 break;
         }
     };
@@ -2567,7 +2643,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/menu/menu.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--div>\n    <button routerLink=\"/Principal\">Principal</button>\n    <button (click)=\"Juego('Adivina')\">Adivina</button>\n    <button (click)=\"Juego('Agilidad')\">Agilidad</button>\n    <button (click)=\"Juego('AdivinaMasListado')\">Adivina+listado</button>\n    <button (click)=\"Juego('AgilidadaMasListado')\">Agilidad+listado</button>  \n    <button routerLink=\"/error\">Error</button>\n  \n</div-->\n\n<!--nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" routerLink=\"/Principal\">Inicio</a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a routerLink=\"/Juegos\">Juegos</a></li>\n        <li><a data-toggle=\"tooltip\" title=\"Hooray!\" (click)=\"Juego('Adivina')\">Adivina</a></li>\n        <li><a  (click)=\"Juego('Agilidad')\">Agilidad</a></li>\n        <li><a  (click)=\"Juego('AdivinaMasListado')\">Adivina+listado</a></li>\n        <li><a  (click)=\"Juego('AgilidadaMasListado')\">Agilidad+listado</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n          <li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> Mis Datos</a></li>\n          <li><a href=\"#\"><span class=\"glyphicon glyphicon-log-out\"></span> Salir</a></li>\n        </ul>\n    </div>\n  </nav-->\n <!-- <nav class=\"navbar navbar-inverse\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n            <span class=\"icon-bar\"></span>\n                                  \n          </button>\n          <a class=\"navbar-brand\" routerLink=\"/Principal\">Inicio</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n            <ul class=\"nav navbar-nav\">\n                <li class=\"active\"><a routerLink=\"/Juegos\">Menú de Juegos</a></li>\n                <li><a data-toggle=\"tooltip\" title=\"Hooray!\" (click)=\"Juego('Adivina')\">Adivina</a></li>\n                <li><a  (click)=\"Juego('Agilidad')\">Agilidad</a></li>\n                <li><a  (click)=\"Juego('AdivinaMasListado')\">Adivina+listado</a></li>\n                <li><a  (click)=\"Juego('AgilidadaMasListado')\">Agilidad+listado</a></li>\n              </ul>\n              <ul class=\"nav navbar-nav navbar-right\">\n                  <li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> Mis Datos</a></li>\n                  <li><a href=\"/Login\"><span class=\"glyphicon glyphicon-log-out\"></span> Salir</a></li>\n                </ul>\n        </div>\n      </div>\n    </nav>\n  -->\n<!-- El logotipo y el icono que despliega el menú se agrupan para mostrarlos mejor en los dispositivos móviles -->\n\n\n\n\n<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n<nav class=\"navbar  navbar-default\"> \n\n  <div class=\"navbar-header navbar-inverse\">\n  <a class=\"navbar-brand\" routerLink=\"/Principal\">Bienvenidos</a>\n  </div>\n\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('Agilidad')\">Agilidad</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('Adivina')\">Adivina</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n      <li><a  (click)=\"Juego('AdivinaMasListado')\">Adivina+listado</a></li>\n    </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('AgilidadaMasListado')\">Agilidad+listado</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('PiedraPapelTijera')\">PiedraPapelTijera</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('Fanaticos')\">Fanáticos</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('Anagrama')\">Anagrama</a></li>\n  </ul>\n\n  <ul class=\"nav navbar-nav navbar-inverse\">\n    <li><a  (click)=\"Juego('QuienSoy')\"><span class=\"glyphicon glyphicon-user\"></span> Mis Datos</a></li>\n  </ul>\n\n  <ul class=\"nav navbar-nav navbar-inverse\">\n    <li><a  (click)=\"Juego('/')\"><span class=\"glyphicon glyphicon-log-out\"></span> Salir</a></li>\n  </ul>\n\n</nav>"
+module.exports = "<!--div>\n    <button routerLink=\"/Principal\">Principal</button>\n    <button (click)=\"Juego('Adivina')\">Adivina</button>\n    <button (click)=\"Juego('Agilidad')\">Agilidad</button>\n    <button (click)=\"Juego('AdivinaMasListado')\">Adivina+listado</button>\n    <button (click)=\"Juego('AgilidadaMasListado')\">Agilidad+listado</button>  \n    <button routerLink=\"/error\">Error</button>\n  \n</div-->\n\n<!--nav class=\"navbar navbar-inverse\">\n    <div class=\"container-fluid\">\n      <div class=\"navbar-header\">\n        <a class=\"navbar-brand\" routerLink=\"/Principal\">Inicio</a>\n      </div>\n      <ul class=\"nav navbar-nav\">\n        <li class=\"active\"><a routerLink=\"/Juegos\">Juegos</a></li>\n        <li><a data-toggle=\"tooltip\" title=\"Hooray!\" (click)=\"Juego('Adivina')\">Adivina</a></li>\n        <li><a  (click)=\"Juego('Agilidad')\">Agilidad</a></li>\n        <li><a  (click)=\"Juego('AdivinaMasListado')\">Adivina+listado</a></li>\n        <li><a  (click)=\"Juego('AgilidadaMasListado')\">Agilidad+listado</a></li>\n      </ul>\n      <ul class=\"nav navbar-nav navbar-right\">\n          <li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> Mis Datos</a></li>\n          <li><a href=\"#\"><span class=\"glyphicon glyphicon-log-out\"></span> Salir</a></li>\n        </ul>\n    </div>\n  </nav-->\n <!-- <nav class=\"navbar navbar-inverse\">\n      <div class=\"container-fluid\">\n        <div class=\"navbar-header\">\n          <button type=\"button\" class=\"navbar-toggle\" data-toggle=\"collapse\" data-target=\"#myNavbar\">\n            <span class=\"icon-bar\"></span>\n                                  \n          </button>\n          <a class=\"navbar-brand\" routerLink=\"/Principal\">Inicio</a>\n        </div>\n        <div class=\"collapse navbar-collapse\" id=\"myNavbar\">\n            <ul class=\"nav navbar-nav\">\n                <li class=\"active\"><a routerLink=\"/Juegos\">Menú de Juegos</a></li>\n                <li><a data-toggle=\"tooltip\" title=\"Hooray!\" (click)=\"Juego('Adivina')\">Adivina</a></li>\n                <li><a  (click)=\"Juego('Agilidad')\">Agilidad</a></li>\n                <li><a  (click)=\"Juego('AdivinaMasListado')\">Adivina+listado</a></li>\n                <li><a  (click)=\"Juego('AgilidadaMasListado')\">Agilidad+listado</a></li>\n              </ul>\n              <ul class=\"nav navbar-nav navbar-right\">\n                  <li><a href=\"#\"><span class=\"glyphicon glyphicon-user\"></span> Mis Datos</a></li>\n                  <li><a href=\"/Login\"><span class=\"glyphicon glyphicon-log-out\"></span> Salir</a></li>\n                </ul>\n        </div>\n      </div>\n    </nav>\n  -->\n<!-- El logotipo y el icono que despliega el menú se agrupan para mostrarlos mejor en los dispositivos móviles -->\n\n\n\n\n<link href=\"https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css\" rel=\"stylesheet\">\n\n<nav class=\"navbar  navbar-default\"> \n\n  <div class=\"navbar-header navbar-inverse\">\n  <a class=\"navbar-brand\" routerLink=\"/Principal\">Bienvenidos</a>\n  </div>\n\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('Agilidad')\">Agilidad</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('Adivina')\">Adivina</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n      <li><a  (click)=\"Juego('AdivinaMasListado')\">Adivina+listado</a></li>\n    </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('AgilidadaMasListado')\">Agilidad+listado</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('PiedraPapelTijera')\">PiedraPapelTijera</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('Fanaticos')\">Fanáticos</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n    <li><a  (click)=\"Juego('Anagrama')\">Anagrama</a></li>\n  </ul>\n  <ul class=\"nav navbar-nav\">\n      <li><a  (click)=\"Juego('Tateti')\">Tateti</a></li>\n    </ul>\n\n  <ul class=\"nav navbar-nav navbar-inverse\">\n    <li><a  (click)=\"Juego('QuienSoy')\"><span class=\"glyphicon glyphicon-user\"></span> Mis Datos</a></li>\n  </ul>\n\n  <ul class=\"nav navbar-nav navbar-inverse\">\n    <li><a  (click)=\"Juego('/')\"><span class=\"glyphicon glyphicon-log-out\"></span> Salir</a></li>\n  </ul>\n\n</nav>"
 
 /***/ }),
 
@@ -2652,6 +2728,9 @@ var MenuComponent = (function () {
                 break;
             case 'Anagrama':
                 this.router.navigate(['/Juegos/Anagrama']);
+                break;
+            case 'Tateti':
+                this.router.navigate(['/Juegos/Tateti']);
                 break;
             case 'QuienSoy':
                 this.router.navigate(['/QuienSoy']);
@@ -2793,7 +2872,7 @@ module.exports = module.exports.toString();
 /***/ "../../../../../src/app/componentes/principal/principal.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<!--<app-cabecera>  </app-cabecera>-->\n<app-menu></app-menu>\n<link href=\"https://fonts.googleapis.com/css?family=Lobster+Two\" rel=\"stylesheet\"> \n\n\n<!--<div class=\"container\" >  \n    <ul class=\"list-group\">\n\n        <li class=\"list-group-item list-group-item-danger\">\n           \n                <div class=\"media-body\">\n                    <div class=\"hero-text\">\n                        <h4 >Menú Principal</h4>\n                    </div>\n                 </div>\n               \n             \n        </li>\n\n        <li class=\"list-group-item list-group-item-success\">\n          <a routerLink=\"/Juegos\">\n            <div class=\"media\">\n              <div class=\"media-left\">\n                    <img src=\"./assets/imagenes/saladejuegos.png\" class=\"media-object imagenDeMenu\" >\n              </div>\n              <div class=\"media-body\">\n                <h4 class=\"media-heading\">Juegos</h4>\n                <p>El método lúdico es un conjunto de estrategias diseñadas para crear un ambiente de armonía en los estudiantes que están inmersos en el proceso de aprendizaje. Este método busca que los alumnos se apropien de los temas impartidos por los docentes utilizando el juego.</p>\n              </div>\n             \n            </div> \n          </a>\n        </li>\n\n        <li class=\"list-group-item list-group-item-info\">\n            <a routerLink=\"/Listado\">\n              <div class=\"media\">\n                  <div class=\"media-left\">\n                      <img src=\"./assets/imagenes/listado.jpg\" class=\"media-object imagenDeMenu\" >\n                    </div>\n                <div class=\"media-body\">\n                  <h4 class=\"media-heading\">Listados de resultados</h4>\n                  <p>Los listados de los resultados con ordenamiento y busqueda</p>\n                </div>\n                \n              </div> \n            </a>\n        </li>\n\n        <!--<li class=\"list-group-item list-group-item-warning\">\n          <a routerLink=\"/Juegos\">\n            <div class=\"media\">\n                <div class=\"media-left\">\n                    <img src=\"./assets/imagenes/Configuracion.png\" class=\"media-object imagenDeMenu\" >\n                  </div>\n              <div class=\"media-body\">\n                <h4 class=\"media-heading\">Configuraci&oacute;n</h4>\n                <p>Ajustes de la aplicacion y los métodos de autentificación</p>\n              </div>\n             \n            </div> \n          </a>\n        </li>-->\n        \n<!--        <li class=\"list-group-item list-group-item-warning\">\n          <a routerLink=\"/Jugadores\">\n            <div class=\"media\">\n                <div class=\"media-left\">\n                    <img src=\"./assets/imagenes/jugadores.png\" class=\"media-object imagenDeMenu\" >\n                  </div>\n              <div class=\"media-body\">\n                <h4 class=\"media-heading\">Jugadores</h4>\n                <p>Listado de jugadores</p>\n              </div>\n             \n            </div> \n          </a>\n        </li>   \n    </ul>\n</div>\n-->\n\n<link href=\"https://fonts.googleapis.com/css?family=Acme\" rel=\"stylesheet\"> \n<div class=\"container-fluid fuente\" >\n  <div id=\"myCarousel\" class=\"carousel slide color-fondo\" data-ride=\"carousel\">\n    <!-- Indicators -->\n    <ol class=\"carousel-indicators\">\n      <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\n    </ol>\n\n    <!-- Wrapper for slides -->\n    <div class=\"carousel-inner\"  >\n      \n      <div class=\"item active\">\n        <img src=\"./assets/imagenes/saladejuegos.png\" alt=\"Juegos\" style=\"width:44.5%;height:70%;\">\n        <a routerLink=\"/Juegos\">\n          <div class=\"carousel-caption carousel-text-right\">          \n            <h3 class=\"text-right\">Juegos</h3>\n            <p class=\"text-right\">El método lúdico es un conjunto de estrategias diseñadas para crear un ambiente de armonía en los estudiantes que están inmersos en el proceso de aprendizaje. Este método busca que los alumnos se apropien de los temas impartidos por los docentes utilizando el juego.</p>\n          </div>\n        </a>\n      </div>\n      \n\n      <div class=\"item\">\n        <img src=\"./assets/imagenes/listado.jpg\" alt=\"Listados de resultados\" style=\"width:46.15%;height:70%;\">\n         <a routerLink=\"/Listado\"> <!-- <a routerLink=\"/Listado\"> -->\n          <div class=\"carousel-caption carousel-text-right\">\n            <h3 class=\"text-right\">Listados de resultados</h3>\n            <!-- <p>Los listados de los resultados con ordenamiento y busqueda</p> -->\n            <p class=\"text-right\">Estadísticas y resultados del juego para cada jugador.</p>\n          </div>\n       </a>\n      </div>\n    \n      <div class=\"item\">\n        <img src=\"./assets/imagenes/Configuracion.png\"  alt=\"Configuración\" style=\"width:46%;height:70%;\">\n        <a routerLink=\"/Login\">\n          <div class=\"carousel-caption carousel-text-right\">\n            <h3 class=\"text-right\">Configuración</h3>\n            <p class=\"text-right\"> Ajustes de la aplicacion y los métodos de autentificación</p>\n          </div>\n        </a>\n      </div>\n  \n    </div>\n\n    <!-- Left and right controls -->\n    <a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      <span class=\"sr-only\">Previous</span>\n    </a>\n    <a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\">\n      <span class=\"glyphicon glyphicon-chevron-right\"></span>\n      <span class=\"sr-only\">Next</span>\n    </a>\n  </div>\n</div>"
+module.exports = "<!--<app-cabecera>  </app-cabecera>-->\n<app-menu></app-menu>\n<link href=\"https://fonts.googleapis.com/css?family=Lobster+Two\" rel=\"stylesheet\"> \n\n\n<!--<div class=\"container\" >  \n    <ul class=\"list-group\">\n\n        <li class=\"list-group-item list-group-item-danger\">\n           \n                <div class=\"media-body\">\n                    <div class=\"hero-text\">\n                        <h4 >Menú Principal</h4>\n                    </div>\n                 </div>\n               \n             \n        </li>\n\n        <li class=\"list-group-item list-group-item-success\">\n          <a routerLink=\"/Juegos\">\n            <div class=\"media\">\n              <div class=\"media-left\">\n                    <img src=\"./assets/imagenes/saladejuegos.png\" class=\"media-object imagenDeMenu\" >\n              </div>\n              <div class=\"media-body\">\n                <h4 class=\"media-heading\">Juegos</h4>\n                <p>El método lúdico es un conjunto de estrategias diseñadas para crear un ambiente de armonía en los estudiantes que están inmersos en el proceso de aprendizaje. Este método busca que los alumnos se apropien de los temas impartidos por los docentes utilizando el juego.</p>\n              </div>\n             \n            </div> \n          </a>\n        </li>\n\n        <li class=\"list-group-item list-group-item-info\">\n            <a routerLink=\"/Listado\">\n              <div class=\"media\">\n                  <div class=\"media-left\">\n                      <img src=\"./assets/imagenes/listado.jpg\" class=\"media-object imagenDeMenu\" >\n                    </div>\n                <div class=\"media-body\">\n                  <h4 class=\"media-heading\">Listados de resultados</h4>\n                  <p>Los listados de los resultados con ordenamiento y busqueda</p>\n                </div>\n                \n              </div> \n            </a>\n        </li>\n\n        <!--<li class=\"list-group-item list-group-item-warning\">\n          <a routerLink=\"/Juegos\">\n            <div class=\"media\">\n                <div class=\"media-left\">\n                    <img src=\"./assets/imagenes/Configuracion.png\" class=\"media-object imagenDeMenu\" >\n                  </div>\n              <div class=\"media-body\">\n                <h4 class=\"media-heading\">Configuraci&oacute;n</h4>\n                <p>Ajustes de la aplicacion y los métodos de autentificación</p>\n              </div>\n             \n            </div> \n          </a>\n        </li>-->\n        \n<!--        <li class=\"list-group-item list-group-item-warning\">\n          <a routerLink=\"/Jugadores\">\n            <div class=\"media\">\n                <div class=\"media-left\">\n                    <img src=\"./assets/imagenes/jugadores.png\" class=\"media-object imagenDeMenu\" >\n                  </div>\n              <div class=\"media-body\">\n                <h4 class=\"media-heading\">Jugadores</h4>\n                <p>Listado de jugadores</p>\n              </div>\n             \n            </div> \n          </a>\n        </li>   \n    </ul>\n</div>\n-->\n\n<link href=\"https://fonts.googleapis.com/css?family=Acme\" rel=\"stylesheet\"> \n<div class=\"container-fluid fuente\" >\n  <div id=\"myCarousel\" class=\"carousel slide color-fondo\" data-ride=\"carousel\">\n    <!-- Indicators -->\n    <ol class=\"carousel-indicators\">\n      <li data-target=\"#myCarousel\" data-slide-to=\"0\" class=\"active\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"1\"></li>\n      <li data-target=\"#myCarousel\" data-slide-to=\"2\"></li>\n    </ol>\n\n    <!-- Wrapper for slides -->\n    <div class=\"carousel-inner\"  >\n      \n      <div class=\"item active\">\n        <img src=\"./assets/imagenes/saladejuegos.png\" alt=\"Juegos\" style=\"width:45%;height:60%;\">\n        <a routerLink=\"/Juegos\">\n          <div class=\"carousel-caption carousel-text-right\">          \n            <h3 class=\"text-right\">Juegos</h3>\n            <p class=\"text-right\">El método lúdico es un conjunto de estrategias diseñadas para crear un ambiente de armonía en los estudiantes que están inmersos en el proceso de aprendizaje. Este método busca que los alumnos se apropien de los temas impartidos por los docentes utilizando el juego.</p>\n          </div>\n        </a>\n      </div>\n      \n      <div class=\"item\">\n        <img src=\"./assets/imagenes/listado.jpg\" alt=\"Listados de resultados\" style=\"width:45%;height:60%;\">\n         <a routerLink=\"/Listado\"> <!-- <a routerLink=\"/Listado\"> -->\n          <div class=\"carousel-caption carousel-text-right\">\n            <h3 class=\"text-right\">Listados de resultados</h3>\n            <!-- <p>Los listados de los resultados con ordenamiento y busqueda</p> -->\n            <p class=\"text-right\">Estadísticas y resultados del juego para cada jugador.</p>\n          </div>\n       </a>\n      </div>\n    \n      <div class=\"item\">\n        <img src=\"./assets/imagenes/Configuracion.png\"  alt=\"Configuración\" style=\"width:45%;height:60%;\">\n        <a routerLink=\"/Login\">\n          <div class=\"carousel-caption carousel-text-right\">\n            <h3 class=\"text-right\">Configuración</h3>\n            <p class=\"text-right\"> Ajustes de la aplicacion y los métodos de autentificación</p>\n          </div>\n        </a>\n      </div>\n  \n    </div>\n\n    <!-- Left and right controls -->\n    <a class=\"left carousel-control\" href=\"#myCarousel\" data-slide=\"prev\">\n      <span class=\"glyphicon glyphicon-chevron-left\"></span>\n      <span class=\"sr-only\">Previous</span>\n    </a>\n    <a class=\"right carousel-control\" href=\"#myCarousel\" data-slide=\"next\">\n      <span class=\"glyphicon glyphicon-chevron-right\"></span>\n      <span class=\"sr-only\">Next</span>\n    </a>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -3033,6 +3112,130 @@ var _a, _b, _c;
 
 /***/ }),
 
+/***/ "../../../../../src/app/componentes/tateti/tateti.component.css":
+/***/ (function(module, exports, __webpack_require__) {
+
+exports = module.exports = __webpack_require__("../../../../css-loader/lib/css-base.js")(false);
+// imports
+
+
+// module
+exports.push([module.i, "img{\r\n    width: 70%;\r\n    position: relative;\r\n    top: 16px;\r\n}\r\n.text-primary{\r\n    color:rgb(255, 0, 98);\r\n    font-family:'Comfortaa', cursive;\r\n}\r\n.color-fondo{\r\n    background-color:#ffff;\r\n}\r\n\r\n.tablero{\r\n   \r\n    -ms-flex-pack: center;\r\n   \r\n        justify-content: center;\r\n}\r\n\r\ntable{\r\n    background-color:#ffff;\r\n}\r\n\r\ntd {\r\n    text-align: center;\r\n    height: 150px;\r\n    width: 150px;\r\n}\r\n\r\n#center-row{\r\n    border-top: 20px solid #44c508;\r\n    border-bottom: 20px solid #44c508;\r\n}\r\n\r\n.borde-right{\r\n    border-right: 20px solid #44c508;\r\n}", ""]);
+
+// exports
+
+
+/*** EXPORTS FROM exports-loader ***/
+module.exports = module.exports.toString();
+
+/***/ }),
+
+/***/ "../../../../../src/app/componentes/tateti/tateti.component.html":
+/***/ (function(module, exports) {
+
+module.exports = "<div class=\"container\">\n    \n    <div class=\"well color-fondo\"> <!-- \"jumbotron\"-->\n        <h1 class=\"text-center text-primary\">Ta-Te-Ti</h1>\n        <h1 class=\"text-center text-success\" *ngIf=\"winner\">Ganaste!</h1>\n        <h1 class=\"text-center text-danger\" *ngIf=\"loser\">Perdiste!</h1>\n        <h1 class=\"text-center text-primary\" *ngIf=\"draw\">Empate, la próxima!</h1>\n        <br>\n        <div *ngIf=\"turnoJugador && !nuevoJuego.juegoTerminado\" class=\"row\">\n            <label class=\"col-12\">\n                <p><i class=\"fa fa-cog fa-spin fa-3x fa-fw\" style=\"font-size:36px;color:rgb(46, 236, 8)\">\n                    </i> Juegue por favor ...</p>\n            </label>\n        </div>\n        <div *ngIf=\"enJuego\" class=\"row tablero\">\n            <table class=\"table table-bordered col-sm-10 col-md-6 col-lg-6\">\n                <tbody>\n                    <tr>\n                        <td class=\"borde-right\" (click)=\"this.marcarJugada(0,0,false)\">\n                            <img src={{this.nuevoJuego.tablero[0][0]}} alt=\"\">\n                        </td>\n                        <td class=\"borde-right\" (click)=\"this.marcarJugada(0,1,false)\">\n                            <img src={{this.nuevoJuego.tablero[0][1]}} alt=\"\">\n                        </td>\n                        <td (click)=\"this.marcarJugada(0,2,false)\">\n                            <img src={{this.nuevoJuego.tablero[0][2]}} alt=\"\">\n                        </td>\n                    </tr>\n                    <tr id=\"center-row\">\n                        <td class=\"borde-right\" (click)=\"this.marcarJugada(1,0,false)\">\n                            <img src={{this.nuevoJuego.tablero[1][0]}} alt=\"\">\n                        </td>\n                        <td class=\"borde-right\" (click)=\"this.marcarJugada(1,1,false)\">\n                            <img src={{this.nuevoJuego.tablero[1][1]}} alt=\"\">\n                        </td>\n                        <td (click)=\"this.marcarJugada(1,2,false)\">\n                            <img src={{this.nuevoJuego.tablero[1][2]}} alt=\"\">\n                        </td>\n                    </tr>\n                    <tr>\n                        <td class=\"borde-right\" (click)=\"this.marcarJugada(2,0,false)\">\n                            <img src={{this.nuevoJuego.tablero[2][0]}} alt=\"\">\n                        </td>\n                        <td class=\"borde-right\" (click)=\"this.marcarJugada(2,1,false)\">\n                            <img src={{this.nuevoJuego.tablero[2][1]}} alt=\"\">\n                        </td>\n                        <td (click)=\"this.marcarJugada(2,2,false)\">\n                            <img src={{this.nuevoJuego.tablero[2][2]}} alt=\"\">\n                        </td>\n                    </tr>\n                </tbody>\n            </table>\n        </div>\n        <div class=\"row\" *ngIf=\"nuevoJuego.juegoTerminado\">\n          <div class=\"col-lg-4\"></div>\n          <div class=\"col-lg-4\"><button (click)=\"nuevo()\" class=\"btn btn-primary btn-lg\" style=\"width: 100%\" type=\"button\" id=\"button-nuevo\">\n              Jugar</button></div>\n            \n        </div>\n    </div>\n</div>\n"
+
+/***/ }),
+
+/***/ "../../../../../src/app/componentes/tateti/tateti.component.ts":
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "a", function() { return TatetiComponent; });
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__("../../../core/@angular/core.es5.js");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__clases_juego_tateti__ = __webpack_require__("../../../../../src/app/clases/juego-tateti.ts");
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+
+
+var TatetiComponent = (function () {
+    function TatetiComponent() {
+        this.enJuego = false;
+        this.turnoJugador = false;
+        this.cuentaMarcas = 0;
+        this.imgCruz = './assets/imagenes/pizza.jpg';
+        this.imgCirculo = './assets/imagenes/hamburguesa.png';
+        this.loser = false;
+        this.winner = false;
+        this.draw = false;
+        this.nuevoJuego = new __WEBPACK_IMPORTED_MODULE_1__clases_juego_tateti__["a" /* JuegoTateti */]();
+    }
+    TatetiComponent.prototype.generarJugada = function () {
+        var row = Math.floor(Math.random() * 3);
+        var col = Math.floor(Math.random() * 3);
+        this.marcarJugada(row, col, true);
+        if (this.cuentaMarcas == 10) {
+            this.draw = true;
+            this.nuevoJuego.juegoTerminado = true;
+        }
+    };
+    TatetiComponent.prototype.marcarJugada = function (row, column, jugadaGenerada) {
+        var _this = this;
+        if (jugadaGenerada) {
+            if (this.nuevoJuego.tablero[row][column] != "" && this.cuentaMarcas < 9) {
+                this.generarJugada();
+            }
+            else {
+                this.cuentaMarcas++;
+                this.nuevoJuego.tablero[row][column] = this.imgCruz;
+                this.turnoJugador = true;
+                if (this.nuevoJuego.verificarTresEnLinea(this.imgCruz)) {
+                    if (!this.nuevoJuego.verificar()) {
+                        this.loser = true;
+                        this.winner = false;
+                    }
+                }
+            }
+        }
+        else {
+            if (this.nuevoJuego.tablero[row][column] == "") {
+                this.cuentaMarcas++;
+                this.nuevoJuego.tablero[row][column] = this.imgCirculo;
+                this.turnoJugador = false;
+                if (!this.nuevoJuego.verificarTresEnLinea(this.imgCirculo)) {
+                    setTimeout(function () {
+                        _this.generarJugada();
+                    }, 400);
+                }
+                else {
+                    this.winner = true;
+                }
+            }
+        }
+    };
+    TatetiComponent.prototype.nuevo = function () {
+        this.draw = false;
+        this.loser = false;
+        this.winner = false;
+        this.nuevoJuego.juegoTerminado = false;
+        this.nuevoJuego.reset();
+        this.enJuego = true;
+        this.turnoJugador = true;
+        this.cuentaMarcas = 0;
+    };
+    TatetiComponent.prototype.ngOnInit = function () { };
+    return TatetiComponent;
+}());
+TatetiComponent = __decorate([
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["o" /* Component */])({
+        selector: 'app-tateti',
+        template: __webpack_require__("../../../../../src/app/componentes/tateti/tateti.component.html"),
+        styles: [__webpack_require__("../../../../../src/app/componentes/tateti/tateti.component.css")]
+    }),
+    __metadata("design:paramtypes", [])
+], TatetiComponent);
+
+//# sourceMappingURL=tateti.component.js.map
+
+/***/ }),
+
 /***/ "../../../../../src/app/material.ts":
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -3129,6 +3332,7 @@ SexoPipe = __decorate([
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_17__componentes_piedra_papel_tijera_piedra_papel_tijera_component__ = __webpack_require__("../../../../../src/app/componentes/piedra-papel-tijera/piedra-papel-tijera.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_18__componentes_fanaticos_fanaticos_component__ = __webpack_require__("../../../../../src/app/componentes/fanaticos/fanaticos.component.ts");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_19__componentes_anagrama_anagrama_component__ = __webpack_require__("../../../../../src/app/componentes/anagrama/anagrama.component.ts");
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_20__componentes_tateti_tateti_component__ = __webpack_require__("../../../../../src/app/componentes/tateti/tateti.component.ts");
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -3137,6 +3341,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 };
 
 // importo del module principal
+
 
 
 
@@ -3176,7 +3381,8 @@ var MiRuteo = [
             { path: 'Agilidad', component: __WEBPACK_IMPORTED_MODULE_6__componentes_agilidad_aritmetica_agilidad_aritmetica_component__["a" /* AgilidadAritmeticaComponent */] },
             { path: 'PiedraPapelTijera', component: __WEBPACK_IMPORTED_MODULE_17__componentes_piedra_papel_tijera_piedra_papel_tijera_component__["a" /* PiedraPapelTijeraComponent */] },
             { path: 'Fanaticos', component: __WEBPACK_IMPORTED_MODULE_18__componentes_fanaticos_fanaticos_component__["a" /* FanaticosComponent */] },
-            { path: 'Anagrama', component: __WEBPACK_IMPORTED_MODULE_19__componentes_anagrama_anagrama_component__["a" /* AnagramaComponent */] }]
+            { path: 'Anagrama', component: __WEBPACK_IMPORTED_MODULE_19__componentes_anagrama_anagrama_component__["a" /* AnagramaComponent */] },
+            { path: 'Tateti', component: __WEBPACK_IMPORTED_MODULE_20__componentes_tateti_tateti_component__["a" /* TatetiComponent */] }]
     },
     { path: '**', component: __WEBPACK_IMPORTED_MODULE_4__componentes_error_error_component__["a" /* ErrorComponent */] },
     { path: 'error', component: __WEBPACK_IMPORTED_MODULE_4__componentes_error_error_component__["a" /* ErrorComponent */] }
