@@ -526,6 +526,41 @@ var Fanaticos = (function (_super) {
                 this.respCorrecta = "silvia muñoz";
                 this.tipoNetflixYoutuberCorrecta = "Youtuber";
                 break;
+            case 19:
+                this.nombreImagen = '19';
+                this.respCorrecta = "viajes";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
+                break;
+            case 20:
+                this.nombreImagen = '20';
+                this.respCorrecta = "la faraona";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
+                break;
+            case 21:
+                this.nombreImagen = '21';
+                this.respCorrecta = "hecatombe";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
+                break;
+            case 22:
+                this.nombreImagen = '22';
+                this.respCorrecta = "la cocina de paulina";
+                this.tipoNetflixYoutuberCorrecta = "Youtuber";
+                break;
+            case 23:
+                this.nombreImagen = '23';
+                this.respCorrecta = "sabrina";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
+                break;
+            case 24:
+                this.nombreImagen = '24';
+                this.respCorrecta = "muñeca rusa";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
+                break;
+            case 25:
+                this.nombreImagen = '25';
+                this.respCorrecta = "apache";
+                this.tipoNetflixYoutuberCorrecta = "Netflix";
+                break;
         }
         this.imgMostrar = this.nombreImagen;
         this.respuesta = this.respCorrecta;
